@@ -695,4 +695,84 @@ def get_analytics_dashboard_stats():
         "live_stream": recent_events
     }
 
+class RedditSearchRequest(BaseModel):
+    subreddits: List[str] = ["SaaS", "startups", "sales", "entrepreneur", "webdev"]
+    query: str = "cold email spam"
+    limit: Optional[int] = 25
+    auto_save: Optional[bool] = True
+    client_id: Optional[str] = None
+    client_secret: Optional[str] = None
+    user_agent: Optional[str] = None
+
+@router.post("/reddit/search")
+def search_reddit_leads(payload: RedditSearchRequest):
+    """
+    Searches Reddit communities for specific buyer intent or pain points
+    using the high-speed Reddit API engine and classifies them into Tri-Box leads.
+    """
+    from app.modules.leadradar.reddit_api_engine import RedditApiEngine
+    
+    engine = RedditApiEngine(
+        client_id=payload.client_id,
+        client_secret=payload.client_secret,
+        user_agent=payload.user_agent
+    )
+    
+    leads = engine.search_subreddits(
+        subreddits=payload.subreddits,
+        query=payload.query,
+        limit=payload.limit or 25
+    )
+    
+    saved_count = 0
+    if payload.auto_save and leads:
+        saved_count = engine.save_leads_to_db(leads)
+        
+    return {
+        "status": "success",
+        "query": payload.query,
+        "subreddits_scanned": payload.subreddits,
+        "leads_found": len(leads),
+        "saved_to_tri_box": saved_count,
+        "leads": leads
+    }
+
+@router.get("/reddit/default-keywords")
+def get_reddit_high_intent_keywords():
+    """Returns curated high-intent search queries across SaaS & agencies."""
+    return {
+        "status": "success",
+        "categories": {
+            "Cold Outreach & Deliverability": [
+                "cold email spam",
+                "open rate dropped",
+                "domain reputation bad",
+                "emails going to promotions",
+                "google postmaster spam"
+            ],
+            "Client Acquisition & Growth": [
+                "how to get clients",
+                "struggling with lead gen",
+                "need marketing agency",
+                "first 100 paying users",
+                "b2b outbound strategy"
+            ],
+            "Tech & Web Development": [
+                "hire react developer",
+                "looking for python backend",
+                "need dev agency for mvp",
+                "redesign web app",
+                "budget for developer"
+            ],
+            "AI & Workflow Automation": [
+                "automate client onboarding",
+                "make.com workflow help",
+                "zapier webhook broken",
+                "ai chatbot for business",
+                "hire ai engineer"
+            ]
+        }
+    }
+
+
 
