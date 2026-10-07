@@ -16,9 +16,9 @@ USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"
 ]
 
-# 100+ Multi-Industry Communities Categorized into 10 Dedicated Fields
+# 200+ Multi-Industry Communities Categorized into 10 Dedicated Fields
 ALL_TARGET_COMMUNITIES = [
-    # 1. Tech & Full-Stack Development
+    # 1. Tech & Full-Stack Development (27 Communities)
     ("reddit", "webdev", "Tech & Dev", "fa-code", "cyan"),
     ("reddit", "javascript", "Tech & Dev", "fa-code", "cyan"),
     ("reddit", "reactjs", "Tech & Dev", "fa-code", "cyan"),
@@ -31,8 +31,23 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "golang", "Tech & Dev", "fa-code", "cyan"),
     ("reddit", "rust", "Tech & Dev", "fa-code", "cyan"),
     ("reddit", "programming", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "typescript", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "angular", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "sveltejs", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "tailwindcss", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "graphql", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "PostgreSQL", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "mongodb", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "elixir", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "cpp", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "csharp", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "dotnet", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "backend", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "frontend", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "fullstack", "Tech & Dev", "fa-code", "cyan"),
+    ("reddit", "laravel", "Tech & Dev", "fa-code", "cyan"),
 
-    # 2. AI, LLMs & Automation Workflows
+    # 2. AI, LLMs & Automation Workflows (26 Communities)
     ("reddit", "OpenAI", "AI & Automation", "fa-brain", "amber"),
     ("reddit", "ChatGPT", "AI & Automation", "fa-brain", "amber"),
     ("reddit", "ArtificialInteligence", "AI & Automation", "fa-brain", "amber"),
@@ -44,8 +59,23 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "zapier", "AI & Automation", "fa-brain", "amber"),
     ("reddit", "ClaudeAI", "AI & Automation", "fa-brain", "amber"),
     ("reddit", "PromptEngineering", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "huggingface", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "Ollama", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "vLLM", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "CrewAI", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "AutoGPT", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "OpenAssistant", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "LlamaIndex", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "Langfuse", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "Rag", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "aiagents", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "Claude", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "Midjourney", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "StableDiffusion", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "GenerativeAI", "AI & Automation", "fa-brain", "amber"),
+    ("reddit", "DeepLearning", "AI & Automation", "fa-brain", "amber"),
 
-    # 3. Design, UI/UX, 3D & Creative
+    # 3. Design, UI/UX, 3D & Creative (21 Communities)
     ("reddit", "DesignJobs", "Design & Creative", "fa-palette", "pink"),
     ("reddit", "graphic_design", "Design & Creative", "fa-palette", "pink"),
     ("reddit", "UI_Design", "Design & Creative", "fa-palette", "pink"),
@@ -55,16 +85,40 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "blender", "Design & Creative", "fa-palette", "pink"),
     ("reddit", "MotionDesign", "Design & Creative", "fa-palette", "pink"),
     ("reddit", "logodesign", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "FigmaDesign", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "userexperience", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "UXDesign", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "web_design", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "industrialdesign", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "Cinema4D", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "Maya", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "UnrealEngine", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "conceptart", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "CharacterDesigning", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "DigitalPainting", "Design & Creative", "fa-palette", "pink"),
+    ("reddit", "typography", "Design & Creative", "fa-palette", "pink"),
 
-    # 4. Video Editing, Animation & Creators
+    # 4. Video Editing, Animation & Creators (18 Communities)
     ("reddit", "videography", "Video & Content", "fa-video", "rose"),
     ("reddit", "VideoEditing", "Video & Content", "fa-video", "rose"),
     ("reddit", "CreatorServices", "Video & Content", "fa-video", "rose"),
     ("reddit", "YouTubers", "Video & Content", "fa-video", "rose"),
     ("reddit", "podcast", "Video & Content", "fa-video", "rose"),
     ("reddit", "AfterEffects", "Video & Content", "fa-video", "rose"),
+    ("reddit", "davinciresolve", "Video & Content", "fa-video", "rose"),
+    ("reddit", "premiere", "Video & Content", "fa-video", "rose"),
+    ("reddit", "Filmmakers", "Video & Content", "fa-video", "rose"),
+    ("reddit", "cinematography", "Video & Content", "fa-video", "rose"),
+    ("reddit", "Editors", "Video & Content", "fa-video", "rose"),
+    ("reddit", "VideoProduction", "Video & Content", "fa-video", "rose"),
+    ("reddit", "videomarketing", "Video & Content", "fa-video", "rose"),
+    ("reddit", "Twitch", "Video & Content", "fa-video", "rose"),
+    ("reddit", "NewTubers", "Video & Content", "fa-video", "rose"),
+    ("reddit", "animation", "Video & Content", "fa-video", "rose"),
+    ("reddit", "2Danimation", "Video & Content", "fa-video", "rose"),
+    ("reddit", "ColorGrading", "Video & Content", "fa-video", "rose"),
 
-    # 5. Marketing, SEO, Copywriting & Growth
+    # 5. Marketing, SEO, Copywriting & Growth (23 Communities)
     ("reddit", "Marketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
     ("reddit", "SEO", "Marketing & SEO", "fa-bullhorn", "emerald"),
     ("reddit", "copywriting", "Marketing & SEO", "fa-bullhorn", "emerald"),
@@ -74,16 +128,42 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "PPC", "Marketing & SEO", "fa-bullhorn", "emerald"),
     ("reddit", "contentmarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
     ("reddit", "GrowthHacking", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "emailmarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "AffiliateMarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "adops", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "FacebookAds", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "GoogleAds", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "content_marketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "b2bmarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "saasmarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "copywriting2", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "publicrelations", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "influencermarketing", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "DirectMail", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "leadgeneration", "Marketing & SEO", "fa-bullhorn", "emerald"),
+    ("reddit", "conversionrate", "Marketing & SEO", "fa-bullhorn", "emerald"),
 
-    # 6. E-Commerce, Shopify & Amazon FBA
+    # 6. E-Commerce, Shopify & Amazon FBA (18 Communities)
     ("reddit", "Shopify", "E-Commerce & Retail", "fa-cart-shopping", "green"),
     ("reddit", "ecommerce", "E-Commerce & Retail", "fa-cart-shopping", "green"),
     ("reddit", "AmazonSeller", "E-Commerce & Retail", "fa-cart-shopping", "green"),
     ("reddit", "FulfillmentByAmazon", "E-Commerce & Retail", "fa-cart-shopping", "green"),
     ("reddit", "dropship", "E-Commerce & Retail", "fa-cart-shopping", "green"),
     ("reddit", "Flipping", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "shopifydev", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "ShopifyeCommerce", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "WooCommerce", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "AmazonMerch", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "Ecommercestrategy", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "EtsySellers", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "PrintOnDemand", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "AmazonFBATips", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "Retail", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "wholesaleglobal", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "WalmartSellers", "E-Commerce & Retail", "fa-cart-shopping", "green"),
+    ("reddit", "BigCommerce", "E-Commerce & Retail", "fa-cart-shopping", "green"),
 
-    # 7. Startups, Founders & SaaS Buyers
+    # 7. Startups, Founders & SaaS Buyers (24 Communities)
     ("reddit", "startups", "Startups & SaaS", "fa-rocket", "purple"),
     ("reddit", "SaaS", "Startups & SaaS", "fa-rocket", "purple"),
     ("reddit", "Entrepreneur", "Startups & SaaS", "fa-rocket", "purple"),
@@ -93,24 +173,61 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "growmybusiness", "Startups & SaaS", "fa-rocket", "purple"),
     ("reddit", "microsaas", "Startups & SaaS", "fa-rocket", "purple"),
     ("reddit", "roastmystartup", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "IndieHackers", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "startup_ideas", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "alphaandbetausers", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "SaaSMarketing", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "venturecapital", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "angelinvestors", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "BootstrappedSaaS", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "ProductManagement", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "scaleup", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "smallbiz", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "solopreneur", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "EntrepreneurRideAlong", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "Business_Ideas", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "BuildInPublic", "Startups & SaaS", "fa-rocket", "purple"),
+    ("reddit", "coys", "Startups & SaaS", "fa-rocket", "purple"),
 
-    # 8. Mobile App Development
+    # 8. Mobile App Development (16 Communities)
     ("reddit", "FlutterDev", "Mobile Apps", "fa-mobile-screen", "blue"),
     ("reddit", "reactnative", "Mobile Apps", "fa-mobile-screen", "blue"),
     ("reddit", "iOSProgramming", "Mobile Apps", "fa-mobile-screen", "blue"),
     ("reddit", "androiddev", "Mobile Apps", "fa-mobile-screen", "blue"),
     ("reddit", "swift", "Mobile Apps", "fa-mobile-screen", "blue"),
     ("reddit", "Kotlin", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "SwiftUI", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "iOSDev", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "AndroidStudio", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "MobileDevelopment", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "Flutter", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "react_native", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "KotlinMultiplatform", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "AppEngine", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "GameDev", "Mobile Apps", "fa-mobile-screen", "blue"),
+    ("reddit", "Unity3D", "Mobile Apps", "fa-mobile-screen", "blue"),
 
-    # 9. DevOps, Cloud & Infrastructure
+    # 9. DevOps, Cloud & Infrastructure (18 Communities)
     ("reddit", "devops", "DevOps & Cloud", "fa-cloud", "indigo"),
     ("reddit", "aws", "DevOps & Cloud", "fa-cloud", "indigo"),
     ("reddit", "docker", "DevOps & Cloud", "fa-cloud", "indigo"),
     ("reddit", "kubernetes", "DevOps & Cloud", "fa-cloud", "indigo"),
     ("reddit", "sysadmin", "DevOps & Cloud", "fa-cloud", "indigo"),
     ("reddit", "selfhosted", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "Terraform", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "ansible", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "linuxadmin", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "googlecloud", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "azure", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "cloudflare", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "Proxmox", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "homelab", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "devopsjobs", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "grafana", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "cybersecurity", "DevOps & Cloud", "fa-cloud", "indigo"),
+    ("reddit", "netsec", "DevOps & Cloud", "fa-cloud", "indigo"),
 
-    # 10. Local Business, Finance & Accounting
+    # 10. Local Business, Finance & Accounting (21 Communities)
     ("reddit", "Accounting", "Local Biz & Finance", "fa-calculator", "teal"),
     ("reddit", "Bookkeeping", "Local Biz & Finance", "fa-calculator", "teal"),
     ("reddit", "RealEstate", "Local Biz & Finance", "fa-calculator", "teal"),
@@ -120,15 +237,31 @@ ALL_TARGET_COMMUNITIES = [
     ("reddit", "FitnessBusiness", "Local Biz & Finance", "fa-calculator", "teal"),
     ("reddit", "consulting", "Local Biz & Finance", "fa-calculator", "teal"),
     ("reddit", "sales", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "tax", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "smallbusinessowners", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "gymowner", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "commercialrealestate", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "landlord", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "Cleaning_Business", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "Contractor", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "HVAC", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "Plumbing", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "LawFirm", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "MedSpa", "Local Biz & Finance", "fa-calculator", "teal"),
+    ("reddit", "AutoDetailing", "Local Biz & Finance", "fa-calculator", "teal"),
 
-    # General Hiring Hubs
+    # General Hiring & High-Intent Freelance Hubs (12 Communities)
     ("reddit", "forhire", "Hiring & Freelance", "fa-briefcase", "emerald"),
     ("reddit", "freelance", "Hiring & Freelance", "fa-briefcase", "emerald"),
     ("reddit", "freelance_forhire", "Hiring & Freelance", "fa-briefcase", "emerald"),
     ("reddit", "jobbit", "Hiring & Freelance", "fa-briefcase", "emerald"),
     ("reddit", "hireaprogrammer", "Hiring & Freelance", "fa-briefcase", "emerald"),
     ("reddit", "remotejobs", "Hiring & Freelance", "fa-briefcase", "emerald"),
-    ("reddit", "remotework", "Hiring & Freelance", "fa-briefcase", "emerald")
+    ("reddit", "remotework", "Hiring & Freelance", "fa-briefcase", "emerald"),
+    ("reddit", "freelance_writers", "Hiring & Freelance", "fa-briefcase", "emerald"),
+    ("reddit", "techjobs", "Hiring & Freelance", "fa-briefcase", "emerald"),
+    ("reddit", "DevsForHire", "Hiring & Freelance", "fa-briefcase", "emerald"),
+    ("reddit", "workonline", "Hiring & Freelance", "fa-briefcase", "emerald")
 ]
 
 COMMUNITY_FIELD_LOOKUP = {c[1].lower(): c[2] for c in ALL_TARGET_COMMUNITIES}
