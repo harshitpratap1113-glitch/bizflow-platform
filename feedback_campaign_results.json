@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-07T09:17:30.153395",
+  "app_url": "https://bizflow-platform.vercel.app",
+  "total_recipients": 5,
+  "dispatched": [
+    {
+      "recipient": "alex.dev@agencyflow.io",
+      "name": "Alex Morgan",
+      "niche": "Web & Next.js Development",
+      "subject": "Quick question about finding Web & Next.js Development clients (Free Beta Access)",
+      "app_url": "https://bizflow-platform.vercel.app",
+      "status": "ready_for_dispatch",
+      "mode": "simulated_audit"
+    },
+    {
+      "recipient": "sarah@lumina-creative.design",
+      "name": "Sarah Jenkins",
+      "niche": "UI/UX & Brand Design",
+      "subject": "Quick question about finding UI/UX & Brand Design clients (Free Beta Access)",
+      "app_url": "https://bizflow-platform.vercel.app",
+      "status": "ready_for_dispatch",
+      "mode": "simulated_audit"
+    },
+    {
+      "recipient": "vikram@aix-solutions.tech",
+      "name": "Vikram Sethi",
+      "niche": "AI Automation & LLM Pipelines",
+      "subject": "Quick question about finding AI Automation & LLM Pipelines clients (Free Beta Access)",
+      "app_url": "https://bizflow-platform.vercel.app",
+      "status": "ready_for_dispatch",
+      "mode": "simulated_audit"
+    },
+    {
+      "recipient": "david@hypermotion.video",
+      "name": "David Miller",
+      "niche": "High-Retention Video Editing",
+      "subject": "Quick question about finding High-Retention Video Editing clients (Free Beta Access)",
+      "app_url": "https://bizflow-platform.vercel.app",
+      "status": "ready_for_dispatch",
+      "mode": "simulated_audit"
+    },
+    {
+      "recipient": "elena@ecomboost.co",
+      "name": "Elena Rostova",
+      "niche": "Shopify CRO & Performance",
+      "subject": "Quick question about finding Shopify CRO & Performance clients (Free Beta Access)",
+      "app_url": "https://bizflow-platform.vercel.app",
+      "status": "ready_for_dispatch",
+      "mode": "simulated_audit"
+    }
+  ]
+}
