@@ -1,0 +1,25 @@
+{
+  "name": "BizFlow AI LeadRadar",
+  "short_name": "BizFlow AI",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#FF5722",
+  "background_color": "#07090E",
+  "display": "standalone",
+  "start_url": "/"
+}
