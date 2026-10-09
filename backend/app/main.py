@@ -101,6 +101,96 @@ STATIC_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
+@app.get("/favicon.ico")
+async def favicon_ico():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "favicon.ico")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/x-icon")
+    return FileResponse(os.path.join(STATIC_DIR, "favicon.ico")) if os.path.exists(os.path.join(STATIC_DIR, "favicon.ico")) else {"error": "not found"}
+
+@app.get("/favicon.svg")
+async def favicon_svg():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "favicon.svg")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/svg+xml")
+    return {"error": "not found"}
+
+@app.get("/favicon.png")
+@app.get("/favicon-32x32.png")
+async def favicon_png():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "favicon-32x32.png")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/android-chrome-192x192.png")
+async def icon_192():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "android-chrome-192x192.png")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/android-chrome-512x512.png")
+async def icon_512():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "android-chrome-512x512.png")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/apple-touch-icon.png")
+async def apple_icon():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "apple-touch-icon.png")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/site.webmanifest")
+async def web_manifest():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "site.webmanifest")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="application/manifest+json")
+    return {"error": "not found"}
+
+@app.get("/og-image.png")
+async def og_img():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "og-image.png")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/robots.txt")
+async def robots_txt():
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://bizflow-platform.vercel.app/sitemap.xml\n")
+
+@app.get("/sitemap.xml")
+async def sitemap_xml():
+    from fastapi.responses import Response
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bizflow-platform.vercel.app/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bizflow-platform.vercel.app/static/index.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>"""
+    return Response(content=xml_content, media_type="application/xml")
+
 @app.get("/")
 async def root():
     candidates = [
@@ -114,106 +204,6 @@ async def root():
         if os.path.exists(c):
             return FileResponse(c)
     return {"message": "BizFlow AI Backend is running!", "status": "online", "docs": "/docs"}
-
-# Serve Root Brand Icons, Favicons, and Manifest for Global Domain Logos
-@app.get("/favicon.ico")
-@app.get("/favicon.svg")
-@app.get("/favicon.png")
-@app.get("/favicon-32x32.png")
-@app.get("/apple-touch-icon.png")
-@app.get("/android-chrome-192x192.png")
-@app.get("/android-chrome-512x512.png")
-@app.get("/site.webmanifest")
-@app.get("/og-image.png")
-@app.get("/robots.txt")
-@app.get("/sitemap.xml")
-async def serve_root_asset(request: WebSocket): # using generic request path
-    from fastapi import Request
-    # We can handle via request path
-    pass
-
-@app.get("/favicon.ico")
-async def favicon_ico():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "favicon.ico")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/x-icon")
-    return {"error": "not found"}
-
-@app.get("/favicon.svg")
-async def favicon_svg():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "favicon.svg")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/svg+xml")
-    return {"error": "not found"}
-
-@app.get("/android-chrome-192x192.png")
-async def icon_192():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "android-chrome-192x192.png")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
-
-@app.get("/android-chrome-512x512.png")
-async def icon_512():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "android-chrome-512x512.png")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
-
-@app.get("/apple-touch-icon.png")
-async def apple_icon():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "apple-touch-icon.png")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
-
-@app.get("/site.webmanifest")
-async def web_manifest():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "site.webmanifest")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="application/manifest+json")
-    return {"error": "not found"}
-
-@app.get("/og-image.png")
-async def og_img():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "og-image.png")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
-
-@app.get("/robots.txt")
-async def robots_txt():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "robots.txt")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="text/plain")
-    from fastapi.responses import PlainTextResponse
-    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://bizflow-platform.vercel.app/sitemap.xml\n")
-
-@app.get("/sitemap.xml")
-async def sitemap_xml():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__))]:
-        p = os.path.join(base, "sitemap.xml")
-        if os.path.exists(p):
-            return FileResponse(p, media_type="application/xml")
-    from fastapi.responses import Response
-    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://bizflow-platform.vercel.app/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>"""
-    return Response(content=xml_content, media_type="application/xml")
 
 @app.get("/health")
 async def health_check():
