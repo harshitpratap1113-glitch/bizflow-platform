@@ -1,3 +1,18 @@
+# BizFlow AI LeadRadar - Robots & Search Spiders Optimization
 User-agent: *
 Allow: /
+Allow: /static/
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /badge.svg
+Allow: /og-image.png
+
+# Disallow internal backend API dumps from direct scrapers
+Disallow: /api/leadradar/spam
+Disallow: /api/leadradar/test
+
+# Crawl Delay & Search Indexing
+Crawl-delay: 1
+
+# XML Sitemaps
 Sitemap: https://bizflow-platform.vercel.app/sitemap.xml

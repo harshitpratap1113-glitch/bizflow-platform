@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Homepage & Main LeadRadar -->
   <url>
     <loc>https://bizflow-platform.vercel.app/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.00</priority>
   </url>
+  
+  <!-- Verified Buyer Leads Stream -->
   <url>
-    <loc>https://bizflow-platform.vercel.app/static/index.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://bizflow-platform.vercel.app/#radar</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Tri-Box Filter Routing System -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#tribox</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Multi-Industry Channels (Dev, UI/UX, Video, Marketing, AI, E-Com) -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#industries</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 1-Click AI Pitch & Cold Outreach Generator -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#pitch-generator</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- SEO Rich Knowledgebase & FAQ -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#faq</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- SaaS Ecosystem & Backlink Network -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#ecosystem</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Real-time Live Traffic Radar -->
+  <url>
+    <loc>https://bizflow-platform.vercel.app/#analytics</loc>
+    <lastmod>2026-10-09T21:00:00+00:00</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.70</priority>
   </url>
 </urlset>

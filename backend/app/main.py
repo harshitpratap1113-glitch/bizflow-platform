@@ -97,21 +97,25 @@ async def websocket_leads_endpoint(websocket: WebSocket):
         ws_manager.disconnect(websocket)
 
 # Static Files & Dashboard UI
-STATIC_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+STATIC_DIR = os.path.join(PROJECT_ROOT, "static")
+if not os.path.exists(STATIC_DIR):
+    STATIC_DIR = os.path.join(os.getcwd(), "static")
+
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 @app.get("/favicon.ico")
 async def favicon_ico():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon.ico")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/x-icon")
-    return FileResponse(os.path.join(STATIC_DIR, "favicon.ico")) if os.path.exists(os.path.join(STATIC_DIR, "favicon.ico")) else {"error": "not found"}
+    return {"error": "not found"}
 
 @app.get("/favicon.svg")
 async def favicon_svg():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon.svg")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/svg+xml")
@@ -120,7 +124,7 @@ async def favicon_svg():
 @app.get("/favicon.png")
 @app.get("/favicon-32x32.png")
 async def favicon_png():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon-32x32.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
@@ -128,7 +132,7 @@ async def favicon_png():
 
 @app.get("/android-chrome-192x192.png")
 async def icon_192():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "android-chrome-192x192.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
@@ -136,7 +140,7 @@ async def icon_192():
 
 @app.get("/android-chrome-512x512.png")
 async def icon_512():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "android-chrome-512x512.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
@@ -144,7 +148,7 @@ async def icon_512():
 
 @app.get("/apple-touch-icon.png")
 async def apple_icon():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "apple-touch-icon.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
@@ -152,7 +156,7 @@ async def apple_icon():
 
 @app.get("/site.webmanifest")
 async def web_manifest():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "site.webmanifest")
         if os.path.exists(p):
             return FileResponse(p, media_type="application/manifest+json")
@@ -160,10 +164,18 @@ async def web_manifest():
 
 @app.get("/og-image.png")
 async def og_img():
-    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+    for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "og-image.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
+    return {"error": "not found"}
+
+@app.get("/badge.svg")
+async def serve_badge_svg():
+    for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
+        p = os.path.join(base, "badge.svg")
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/svg+xml")
     return {"error": "not found"}
 
 @app.get("/robots.txt")
