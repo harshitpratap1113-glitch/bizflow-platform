@@ -935,121 +935,6 @@
     </div>
   </div>
 
-  <!-- Traffic Sources & Channels -->
-          <div class="p-5 rounded-2xl bg-gray-950/70 border border-gray-800 flex flex-col gap-3">
-            <div class="flex items-center justify-between border-b border-gray-800/80 pb-2.5">
-              <div class="flex items-center gap-2">
-                <i class="fa-solid fa-satellite text-cyan-400"></i>
-                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Acquisition Channels</h4>
-              </div>
-              <span class="text-[11px] font-mono text-gray-400">Sources</span>
-            </div>
-
-            <div class="flex flex-col gap-2.5" id="an-sources-container">
-              <div class="text-xs text-gray-500 py-3 text-center">Loading acquisition channels...</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Device Split & Real-time Live Stream -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          
-          <!-- Device Split -->
-          <div class="p-5 rounded-2xl bg-gray-950/70 border border-gray-800 flex flex-col gap-3">
-            <div class="flex items-center justify-between border-b border-gray-800/80 pb-2.5">
-              <div class="flex items-center gap-2">
-                <i class="fa-solid fa-laptop-code text-purple-400"></i>
-                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Devices</h4>
-              </div>
-            </div>
-
-            <div class="flex flex-col gap-3 mt-1" id="an-devices-container">
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-gray-300 flex items-center gap-2"><i class="fa-solid fa-desktop text-sky-400"></i> Desktop (macOS/Win)</span>
-                <span class="font-mono font-bold text-white" id="an-dev-desktop">--</span>
-              </div>
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-gray-300 flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-pink-400"></i> Mobile (iOS/Android)</span>
-                <span class="font-mono font-bold text-white" id="an-dev-mobile">--</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Real-Time Activity Live Stream -->
-          <div class="md:col-span-2 p-5 rounded-2xl bg-gray-950/70 border border-gray-800 flex flex-col gap-3">
-            <div class="flex items-center justify-between border-b border-gray-800/80 pb-2.5">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Real-Time Visitor Activity Stream</h4>
-              </div>
-              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/60">Live Stream</span>
-            </div>
-
-            <div class="flex flex-col gap-2 max-h-48 overflow-y-auto pr-1" id="an-livestream-container">
-              <div class="text-xs text-gray-500 py-3 text-center">Loading real-time events...</div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="p-4 border-t border-gray-800 flex items-center justify-between bg-gray-950/80">
-        <span class="text-[11px] text-gray-400 font-mono">
-          🔒 Auto-refreshing every 10 seconds • DNS verified sessions
-        </span>
-        <button onclick="closeAnalyticsModal()" class="px-5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold transition">
-          Close Radar
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================= MODAL 3: AI PITCH GENERATOR & 1-CLICK DISPATCH ================= -->
-  <div id="pitch-modal" onclick="if(event.target===this)closePitchModal()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 items-center justify-center p-4" style="display: none;">
-    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-xl w-full flex flex-col shadow-2xl overflow-hidden">
-      
-      <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-gray-950/60">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center text-orange-400 text-lg">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold text-white">AI High-Conversion Pitch Drafter</h3>
-            <p class="text-xs text-gray-400">Value-first tailored reply with 1-click share</p>
-          </div>
-        </div>
-        <button onclick="closePitchModal()" class="text-gray-400 hover:text-white p-2">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <div class="p-5 flex flex-col gap-4">
-        <div class="p-3.5 bg-gray-950 rounded-xl border border-gray-800 text-xs font-mono text-gray-300 whitespace-pre-wrap leading-relaxed max-h-80 overflow-y-auto" id="pitch-text-content">
-          Drafting customized pitch...
-        </div>
-      </div>
-
-      <div class="p-4 border-t border-gray-800 flex items-center justify-between bg-gray-950/60 flex-wrap gap-2">
-        <span class="text-[11px] text-gray-500" id="pitch-copied-msg"></span>
-        <div class="flex items-center gap-2 flex-wrap">
-          <button onclick="sendPitchDirectEmail()" id="btn-pitch-email-send" class="px-3.5 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5 shadow-md shadow-cyan-600/25 border border-cyan-400/40">
-            <i class="fa-solid fa-paper-plane text-cyan-200"></i>
-            <span>📧 Send Direct Email</span>
-          </button>
-          <button onclick="sharePitchWhatsApp()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-          </button>
-          <button onclick="copyPitchText()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold rounded-xl transition flex items-center gap-1.5">
-            <i class="fa-solid fa-copy"></i> Copy Pitch
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
   <script>
@@ -1658,17 +1543,6 @@
                   </button>
                 </div>
               </div>
-
-              <div class="flex items-center gap-2 flex-wrap">
-                <button onclick="quickSendEmailPitch(${lead.id})" id="btn-quick-email-${lead.id}" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold shadow-md shadow-cyan-600/25 transition flex items-center gap-1.5 border border-cyan-400/40 active:scale-95">
-                  <i class="fa-solid fa-paper-plane text-[11px] text-cyan-200"></i>
-                  <span>📧 1-Click Email Pitch</span>
-                </button>
-                <button onclick="openPitchModalForLead(${lead.id})" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white text-xs font-bold shadow-md shadow-orange-500/20 transition flex items-center gap-1.5 active:scale-95">
-                  <i class="fa-solid fa-wand-magic-sparkles text-[11px]"></i>
-                  <span>Draft Pitch</span>
-                </button>
-              </div>
             </div>
 
           </div>
@@ -1724,15 +1598,6 @@
             <a href="${getSafeRedditUrl(item)}" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 font-semibold">
               <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Discussion
             </a>
-
-            <div class="flex items-center gap-2">
-              <button onclick="quickSendEmailPitch(${item.id})" id="btn-quick-email-${item.id}" class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1 border border-cyan-400/30">
-                <i class="fa-solid fa-paper-plane text-[10px] text-cyan-200"></i> 📧 Send Email
-              </button>
-              <button onclick="openPitchModalForLead(${item.id})" class="px-3.5 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-xl text-xs font-semibold transition">
-                <i class="fa-solid fa-wand-magic-sparkles text-[10px] text-sky-400 mr-1"></i> Quick Reply
-              </button>
-            </div>
           </div>
         </div>
       `).join('');
@@ -1820,45 +1685,7 @@
     function openIntegrationsModal() { document.getElementById('integrations-modal').style.display = 'flex'; }
     function closeIntegrationsModal() { document.getElementById('integrations-modal').style.display = 'none'; }
 
-    function closePitchModal() { document.getElementById('pitch-modal').style.display = 'none'; }
 
-    async function openPitchModalForLead(leadId) {
-      const modal = document.getElementById('pitch-modal');
-      const box = document.getElementById('pitch-text-content');
-      const copiedMsg = document.getElementById('pitch-copied-msg');
-      copiedMsg.innerText = '';
-      box.innerText = 'Drafting high-conversion personalized pitch...';
-      modal.style.display = 'flex';
-
-      try {
-        const res = await fetch('/api/leadradar/generate-pitch', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lead_id: leadId })
-        });
-        const data = await res.json();
-        if (data.status === 'success') {
-          box.innerText = data.pitch;
-        } else {
-          box.innerText = 'Failed to generate pitch. Please try again.';
-        }
-      } catch (err) {
-        box.innerText = 'Error generating pitch: ' + err.message;
-      }
-    }
-
-    function copyPitchText() {
-      const box = document.getElementById('pitch-text-content');
-      navigator.clipboard.writeText(box.innerText);
-      document.getElementById('pitch-copied-msg').innerText = '✓ Copied to clipboard!';
-      showToast('✓ Reply copied to clipboard!', 'success');
-    }
-
-    function sharePitchWhatsApp() {
-      const box = document.getElementById('pitch-text-content');
-      const text = encodeURIComponent(box.innerText);
-      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
-    }
 
     async function saveIntegrations() {
       const chat = document.getElementById('int-telegram-chat').value;
@@ -1979,79 +1806,8 @@
       }
     }
 
-    // ================= 1-CLICK OUTBOUND EMAIL DISPATCHER JS =================
-    async function quickSendEmailPitch(leadId) {
-      const btn = document.getElementById(`btn-quick-email-${leadId}`);
-      let origText = '';
-      if (btn) {
-        origText = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>Sending...</span>';
-      }
 
-      const senderName = document.getElementById('outbox-sender-name')?.value || 'Harshit Pratap | BizFlow AI';
-      const senderWhatsApp = document.getElementById('outbox-sender-whatsapp')?.value || '';
 
-      try {
-        const res = await fetch('/api/leadradar/outbox/send-pitch', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            lead_id: leadId,
-            sender_name: senderName,
-            sender_whatsapp: senderWhatsApp
-          })
-        });
-        const data = await res.json();
-        if (data.status === 'success') {
-          playAudioPing();
-          showToast(`🎉 ${data.message}`, 'success');
-          if (btn) {
-            btn.className = 'px-3.5 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1.5 border border-emerald-400';
-            btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Sent ✓</span>';
-          }
-        } else {
-          showToast('Error sending pitch: ' + (data.detail || 'Failed'), 'error');
-          if (btn) { btn.disabled = false; btn.innerHTML = origText; }
-        }
-      } catch (err) {
-        showToast('Error: ' + err.message, 'error');
-        if (btn) { btn.disabled = false; btn.innerHTML = origText; }
-      }
-    }
-
-    async function sendPitchDirectEmail() {
-      const text = document.getElementById('pitch-text-content').innerText;
-      const btn = document.getElementById('btn-pitch-email-send');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-      try {
-        const leadId = window.activePitchLeadId || 1;
-        const res = await fetch('/api/leadradar/outbox/send-pitch', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            lead_id: leadId,
-            custom_pitch: text,
-            sender_name: document.getElementById('outbox-sender-name')?.value || 'Harshit Pratap | BizFlow AI',
-            sender_whatsapp: document.getElementById('outbox-sender-whatsapp')?.value || ''
-          })
-        });
-        const data = await res.json();
-        if (data.status === 'success') {
-          playAudioPing();
-          showToast('🎉 Proposal delivered to Primary Inbox!', 'success');
-          closePitchModal();
-        } else {
-          showToast('Error: ' + (data.detail || 'Failed'), 'error');
-        }
-      } catch (err) {
-        showToast('Error: ' + err.message, 'error');
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-paper-plane text-cyan-200"></i> <span>📧 Send Direct Email</span>';
-      }
     // Auto-Register Client Session Tracker
     async function trackClientSession(eventType = 'pageview', meta = '') {
       let sessId = localStorage.getItem('bizflow_session_id');
