@@ -1871,10 +1871,29 @@
             </div>
 
             <div class="flex items-center justify-between pt-3 border-t border-gray-800/80 flex-wrap gap-2">
-              <a href="${getSafeRedditUrl(lead)}" target="_blank" class="text-xs font-bold text-orange-400 hover:text-orange-300 flex items-center gap-1.5 transition">
-                <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
-                <span>Open in Reddit</span>
-              </a>
+              <div class="flex items-center gap-3 flex-wrap">
+                <a href="${getSafeRedditUrl(lead)}" target="_blank" class="text-xs font-bold text-orange-400 hover:text-orange-300 flex items-center gap-1.5 transition">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+                  <span>Open in Reddit</span>
+                </a>
+                <span class="text-gray-700">•</span>
+                <!-- 1-Click Viral Referral / Share Buttons -->
+                <div class="flex items-center gap-1.5">
+                  <button onclick="shareLeadTwitter('${escapeText(lead.title).replace(/'/g, "\\'")}', '${lead.intent_category || 'SaaS'}', ${lead.id})" title="Share to X (Twitter)" class="p-1.5 rounded-lg bg-gray-950 hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-800 text-xs transition">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </button>
+                  <button onclick="shareLeadLinkedIn('${escapeText(lead.title).replace(/'/g, "\\'")}', ${lead.id})" title="Share to LinkedIn" class="p-1.5 rounded-lg bg-gray-950 hover:bg-gray-800 text-gray-400 hover:text-sky-400 border border-gray-800 text-xs transition">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </button>
+                  <button onclick="shareLeadWhatsApp('${escapeText(lead.title).replace(/'/g, "\\'")}', ${lead.id})" title="Share to WhatsApp" class="p-1.5 rounded-lg bg-gray-950 hover:bg-gray-800 text-gray-400 hover:text-emerald-400 border border-gray-800 text-xs transition">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </button>
+                  <button onclick="copyLeadShareLink(${lead.id})" title="Copy Shareable Lead Link" class="px-2 py-1 rounded-lg bg-gray-950 hover:bg-gray-800 text-gray-400 hover:text-orange-400 border border-gray-800 text-[11px] font-mono transition flex items-center gap-1">
+                    <i class="fa-solid fa-link text-[10px]"></i>
+                    <span>Share Lead</span>
+                  </button>
+                </div>
+              </div>
 
               <div class="flex items-center gap-2 flex-wrap">
                 <button onclick="quickSendEmailPitch(${lead.id})" id="btn-quick-email-${lead.id}" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold shadow-md shadow-cyan-600/25 transition flex items-center gap-1.5 border border-cyan-400/40 active:scale-95">
@@ -2482,6 +2501,51 @@
         }
       }).catch(()=>{});
     });
+
+    // ================= VIRAL REFERRAL & SOCIAL SHARE MECHANICS =================
+    function shareLeadTwitter(title, niche, leadId) {
+      trackClientSession('share_twitter', `Lead #${leadId} (${niche})`);
+      const text = encodeURIComponent(`🔥 Live buyer intent lead in #${niche.replace(/\s+/g, '')}: "${title.substring(0, 80)}..."\n\nFound via @BizFlowAI LeadRadar (100+ communities monitored live):\n`);
+      const url = encodeURIComponent(`https://bizflow-platform.vercel.app/?ref=share_tw_${leadId}`);
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=450');
+    }
+
+    function shareLeadLinkedIn(title, leadId) {
+      trackClientSession('share_linkedin', `Lead #${leadId}`);
+      const url = encodeURIComponent(`https://bizflow-platform.vercel.app/?ref=share_li_${leadId}`);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=550');
+    }
+
+    function shareLeadWhatsApp(title, leadId) {
+      trackClientSession('share_whatsapp', `Lead #${leadId}`);
+      const text = encodeURIComponent(`⚡ Check out this verified client lead: "${title.substring(0, 80)}..."\n\nLive on BizFlow LeadRadar: https://bizflow-platform.vercel.app/?ref=share_wa_${leadId}`);
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+    }
+
+    function copyLeadShareLink(leadId) {
+      trackClientSession('copy_share_link', `Lead #${leadId}`);
+      const shareUrl = `https://bizflow-platform.vercel.app/?ref=lead_${leadId}`;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast('🔗 Direct shareable lead link copied to clipboard!', 'success');
+      }).catch(() => {
+        showToast('Link: ' + shareUrl, 'info');
+      });
+    }
+
+    function copyEmbedBadgeSnippet() {
+      trackClientSession('copy_embed_badge', 'Website Backlink Widget');
+      const snippet = `<a href="https://bizflow-platform.vercel.app/" target="_blank" title="Powered by BizFlow AI LeadRadar">\n  <img src="https://bizflow-platform.vercel.app/badge.svg" alt="Powered by BizFlow AI LeadRadar" width="220" height="38" />\n</a>`;
+      navigator.clipboard.writeText(snippet).then(() => {
+        const btn = document.getElementById('btn-copy-embed');
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i><span>Copied HTML!</span>';
+        showToast('✓ Embed code copied! Paste in your website footer or README.', 'success');
+        setTimeout(() => {
+          if (btn) btn.innerHTML = '<i class="fa-solid fa-code text-orange-400"></i><span>Copy Embed Code</span>';
+        }, 3000);
+      }).catch(() => {
+        prompt('Copy HTML code:', snippet);
+      });
+    }
 
     function escapeText(str) {
       if (!str) return '';
