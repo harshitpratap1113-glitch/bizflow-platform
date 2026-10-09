@@ -1,0 +1,56 @@
+# Fallback assets for domain favicon and logo in serverless environments
+FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35" />
+      <stop offset="50%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#D84315" />
+    </linearGradient>
+    <linearGradient id="dishGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFE0B2" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#FF5722" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="8" stroke-dasharray="16 16"/>
+  <path d="M 290 120 A 180 180 0 0 1 410 240" fill="none" stroke="#FFFFFF" stroke-width="26" stroke-linecap="round" opacity="0.95" />
+  <path d="M 270 160 A 120 120 0 0 1 360 250" fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" opacity="0.8" />
+  <path d="M 250 200 A 60 60 0 0 1 310 260" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" opacity="0.65" />
+  <g filter="url(#glow)">
+    <path d="M 140 390 L 220 310" stroke="#FFE0B2" stroke-width="26" stroke-linecap="round" />
+    <path d="M 110 420 L 170 360" stroke="#FFE0B2" stroke-width="22" stroke-linecap="round" />
+    <path d="M 120 420 L 210 420" stroke="#FFE0B2" stroke-width="22" stroke-linecap="round" />
+    <path d="M 130 200 C 170 140, 290 220, 310 340 C 230 360, 150 280, 130 200 Z" fill="url(#dishGrad)" />
+    <line x1="220" y1="270" x2="330" y2="170" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" />
+    <circle cx="330" cy="170" r="20" fill="#00E5FF" stroke="#FFFFFF" stroke-width="8" />
+  </g>
+</svg>"""
+
+SITE_WEBMANIFEST = """{
+  "name": "BizFlow AI LeadRadar",
+  "short_name": "BizFlow AI",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#FF5722",
+  "background_color": "#07090E",
+  "display": "standalone",
+  "start_url": "/"
+}"""

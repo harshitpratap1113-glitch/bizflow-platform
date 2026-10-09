@@ -97,6 +97,8 @@ async def websocket_leads_endpoint(websocket: WebSocket):
         ws_manager.disconnect(websocket)
 
 # Static Files & Dashboard UI
+from app.assets_fallback import FAVICON_SVG, SITE_WEBMANIFEST
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 STATIC_DIR = os.path.join(PROJECT_ROOT, "static")
 if not os.path.exists(STATIC_DIR):
@@ -107,76 +109,85 @@ if os.path.exists(STATIC_DIR):
 
 @app.get("/favicon.ico")
 async def favicon_ico():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon.ico")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/x-icon")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/favicon.svg")
 async def favicon_svg():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon.svg")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/svg+xml")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/favicon.png")
 @app.get("/favicon-32x32.png")
 async def favicon_png():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "favicon-32x32.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/android-chrome-192x192.png")
 async def icon_192():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "android-chrome-192x192.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/android-chrome-512x512.png")
 async def icon_512():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "android-chrome-512x512.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/apple-touch-icon.png")
 async def apple_icon():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "apple-touch-icon.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/site.webmanifest")
 async def web_manifest():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "site.webmanifest")
         if os.path.exists(p):
             return FileResponse(p, media_type="application/manifest+json")
-    return {"error": "not found"}
+    return Response(content=SITE_WEBMANIFEST, media_type="application/manifest+json")
 
 @app.get("/og-image.png")
 async def og_img():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, PROJECT_ROOT, os.getcwd()]:
         p = os.path.join(base, "og-image.png")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/png")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/badge.svg")
 async def serve_badge_svg():
+    from fastapi.responses import Response
     for base in [STATIC_DIR, os.path.dirname(os.path.dirname(__file__)), os.getcwd()]:
         p = os.path.join(base, "badge.svg")
         if os.path.exists(p):
             return FileResponse(p, media_type="image/svg+xml")
-    return {"error": "not found"}
+    return Response(content=FAVICON_SVG, media_type="image/svg+xml")
 
 @app.get("/robots.txt")
 async def robots_txt():
