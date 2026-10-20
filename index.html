@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BizFlow AI — Ultra LeadRadar (100+ Live Multi-Industry Streams & Tri-Box System)</title>
+  <title>LeedsFlow AI — Ultra LeadRadar (100+ Live Multi-Industry Streams & Tri-Box System)</title>
   <meta name="description" content="Worldwide multi-industry buyer intent radar across 100+ communities with real-time live ticker, 10 industry fields, and Tri-Box routing." />
   <meta name="theme-color" content="#FF5722" />
 
@@ -30,7 +30,7 @@
       {
         "@type": "WebApplication",
         "@id": "https://bizflow-platform.vercel.app/#webapp",
-        "name": "BizFlow AI LeadRadar",
+        "name": "LeedsFlow AI LeadRadar",
         "url": "https://bizflow-platform.vercel.app/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
@@ -53,7 +53,7 @@
       {
         "@type": "Organization",
         "@id": "https://bizflow-platform.vercel.app/#organization",
-        "name": "BizFlow AI",
+        "name": "LeedsFlow AI",
         "url": "https://bizflow-platform.vercel.app/",
         "logo": "https://bizflow-platform.vercel.app/android-chrome-512x512.png",
         "image": "https://bizflow-platform.vercel.app/og-image.png",
@@ -74,10 +74,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How does BizFlow AI LeadRadar find verified buyer leads?",
+            "name": "How does LeedsFlow AI LeadRadar find verified buyer leads?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "BizFlow AI LeadRadar monitors 100+ high-traffic developer, design, SaaS, and agency communities in real-time. It analyzes natural language intent signals, budgets ($1k-$10k+), and project timelines using AI semantic matching."
+              "text": "LeedsFlow AI LeadRadar monitors 100+ high-traffic developer, design, SaaS, and agency communities in real-time. It analyzes natural language intent signals, budgets ($1k-$10k+), and project timelines using AI semantic matching."
             }
           },
           {
@@ -93,15 +93,15 @@
             "name": "Can I draft and send 1-click cold email pitches?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes! BizFlow AI includes an instant AI Pitch Generator that tailors a hyper-relevant value pitch based on the client's exact problem and your agency portfolio."
+              "text": "Yes! LeedsFlow AI includes an instant AI Pitch Generator that tailors a hyper-relevant value pitch based on the client's exact problem and your agency portfolio."
             }
           },
           {
             "@type": "Question",
-            "name": "Is BizFlow AI LeadRadar free to use?",
+            "name": "Is LeedsFlow AI LeadRadar free to use?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "BizFlow AI offers free live access to stream buyer intent leads across 10 industries, filter by budget, and test 1-click pitches."
+              "text": "LeedsFlow AI offers free live access to stream buyer intent leads across 10 industries, filter by budget, and test 1-click pitches."
             }
           }
         ]
@@ -113,12 +113,12 @@
   <!-- Open Graph / Social / Search Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bizflow-platform.vercel.app/" />
-  <meta property="og:title" content="BizFlow AI — Ultra LeadRadar (100+ Live Multi-Industry Streams)" />
+  <meta property="og:title" content="LeedsFlow AI — Ultra LeadRadar (100+ Live Multi-Industry Streams)" />
   <meta property="og:description" content="Worldwide multi-industry buyer intent radar across 100+ communities with real-time live ticker, 10 industry fields, and Tri-Box routing." />
   <meta property="og:image" content="https://bizflow-platform.vercel.app/og-image.png" />
-  <meta property="og:site_name" content="BizFlow AI LeadRadar" />
+  <meta property="og:site_name" content="LeedsFlow AI LeadRadar" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BizFlow AI — Ultra LeadRadar" />
+  <meta name="twitter:title" content="LeedsFlow AI — Ultra LeadRadar" />
   <meta name="twitter:description" content="Worldwide multi-industry buyer intent radar across 100+ communities with real-time live ticker." />
   <meta name="twitter:image" content="https://bizflow-platform.vercel.app/og-image.png" />
   
@@ -229,7 +229,7 @@
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <span class="font-black text-lg tracking-tight text-white">BizFlow<span class="text-orange-500">.AI</span></span>
+              <span class="font-black text-lg tracking-tight text-white">LeedsFlow<span class="text-orange-500">.AI</span></span>
               <span class="px-2 py-0.5 rounded-full bg-orange-950 text-orange-300 border border-orange-700/60 text-[10px] font-mono font-black uppercase tracking-wider">TRI-BOX V2.0</span>
             </div>
             <span class="text-[10px] text-gray-400 block -mt-0.5">Worldwide Multi-Industry Buyer Intent Engine</span>
@@ -267,6 +267,12 @@
         <button onclick="triggerLiveScan()" id="btn-live-scan" class="px-4 py-2 bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 shadow-lg shadow-orange-500/25 active:scale-95">
           <i class="fa-solid fa-satellite-dish text-xs" id="icon-live-scan"></i>
           <span id="text-live-scan">⚡ Ingest 100+ Streams</span>
+        </button>
+
+        <!-- ➕ Connect Community Button -->
+        <button onclick="openCommunityModal()" class="px-3.5 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-cyan-600/25 active:scale-95" title="Connect your custom community to LeedsFlow">
+          <i class="fa-solid fa-users-rays text-cyan-200"></i>
+          <span class="hidden sm:inline">➕ Connect Community</span>
         </button>
 
         <button onclick="openFeedbackModal()" class="px-3.5 py-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-amber-600/20 active:scale-95">
@@ -432,6 +438,21 @@
         </div>
       </div>
 
+      <!-- 3. CONNECTED COMMUNITIES WIDGET -->
+      <div class="glass-card rounded-2xl p-4 border border-gray-800 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-users-rays text-cyan-400"></i> My Communities
+          </h3>
+          <button onclick="openCommunityModal()" class="text-[10px] text-cyan-400 hover:text-cyan-300 font-mono font-bold flex items-center gap-1">
+            <i class="fa-solid fa-plus"></i> Connect
+          </button>
+        </div>
+        <div id="sidebar-connected-communities" class="flex flex-col gap-1.5 text-xs">
+          <div class="text-[11px] text-gray-500 italic">223 global communities active. Click Connect to add yours.</div>
+        </div>
+      </div>
+
     </aside>
 
     <!-- ========== RIGHT MAIN CONTENT: LEADS FEED ========== -->
@@ -497,10 +518,10 @@
         <div class="p-4.5 rounded-2xl bg-gray-950/70 border border-gray-800/90 flex flex-col gap-2">
           <h3 class="text-sm font-bold text-white flex items-center gap-2">
             <span class="w-6 h-6 rounded-lg bg-orange-950 text-orange-400 text-xs flex items-center justify-center font-mono shrink-0">01</span>
-            <span>How does BizFlow LeadRadar find verified buyer leads?</span>
+            <span>How does LeedsFlow LeadRadar find verified buyer leads?</span>
           </h3>
           <p class="text-xs text-gray-300 leading-relaxed pl-8 font-sans">
-            BizFlow AI monitors over 100+ high-traffic developer, design, SaaS, and freelance subreddits in real-time. It analyzes natural language intent, detected budgets ($1k-$10k+), and project timelines using semantic scoring to filter out spam and noise.
+            LeedsFlow AI monitors over 100+ high-traffic developer, design, SaaS, and freelance subreddits in real-time. It analyzes natural language intent, detected budgets ($1k-$10k+), and project timelines using semantic scoring to filter out spam and noise.
           </p>
         </div>
 
@@ -641,7 +662,7 @@
           </div>
         </a>
 
-        <!-- App 6: BizFlow AI LeadRadar -->
+        <!-- App 6: LeedsFlow AI LeadRadar -->
         <div class="p-4.5 rounded-2xl bg-orange-950/30 border border-orange-500/50 flex flex-col justify-between gap-3 shadow-lg shadow-orange-950/30">
           <div class="flex items-center justify-between">
             <div class="w-10 h-10 rounded-xl bg-orange-950/80 border border-orange-500/40 flex items-center justify-center text-orange-400 text-lg">
@@ -651,7 +672,7 @@
           </div>
           <div>
             <h3 class="text-sm font-bold text-white flex items-center gap-1.5">
-              <span>BizFlow AI LeadRadar</span>
+              <span>LeedsFlow AI LeadRadar</span>
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             </h3>
             <p class="text-xs text-gray-300 mt-1">Worldwide buyer intent radar across 100+ communities with Tri-Box routing and 1-click cold email outreach.</p>
@@ -663,9 +684,9 @@
       <!-- Embeddable Backlink Badge Box -->
       <div class="p-5 rounded-2xl bg-gray-950/90 border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div class="flex items-center gap-3">
-          <img src="/badge.svg" alt="Powered by BizFlow AI LeadRadar" class="h-9 w-auto rounded-lg" />
+          <img src="/badge.svg" alt="Powered by LeedsFlow AI LeadRadar" class="h-9 w-auto rounded-lg" />
           <div>
-            <h4 class="text-xs font-bold text-white">Embed BizFlow Badge on your Blog or Portfolio</h4>
+            <h4 class="text-xs font-bold text-white">Embed LeedsFlow Badge on your Blog or Portfolio</h4>
             <p class="text-[11px] text-gray-400">Showcase your live lead intelligence tool and earn referral benefits.</p>
           </div>
         </div>
@@ -682,8 +703,8 @@
   <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-gray-800/80 mt-6">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
       <div class="flex items-center gap-2.5">
-        <img src="/favicon.svg" alt="BizFlow Logo" class="w-5 h-5" />
-        <span class="font-bold text-gray-300">BizFlow AI LeadRadar</span>
+        <img src="/favicon.svg" alt="LeedsFlow Logo" class="w-5 h-5" />
+        <span class="font-bold text-gray-300">LeedsFlow AI LeadRadar</span>
         <span>•</span>
         <span>Built & Engineered by <strong class="text-gray-300 font-semibold">Harshit Pratap</strong></span>
       </div>
@@ -824,6 +845,111 @@
     </div>
   </div>
 
+  
+  <!-- ================= MODAL: CONNECT YOUR COMMUNITY ================= -->
+  <div id="community-modal" onclick="if(event.target===this)closeCommunityModal()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 items-center justify-center p-4" style="display: none;">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+      
+      <div class="p-5 border-b border-gray-800 flex items-center justify-between bg-gray-950/60">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg">
+            <i class="fa-solid fa-users-rays"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <span>Connect Your Community</span>
+              <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/60 text-[10px] font-mono">Real-time Radar</span>
+            </h3>
+            <p class="text-xs text-gray-400">Stream leads from your own Subreddit, Telegram group, or Discord channel</p>
+          </div>
+        </div>
+        <button onclick="closeCommunityModal()" class="text-gray-400 hover:text-white p-2">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto flex flex-col gap-4 max-h-[75vh]">
+        <!-- Platform Selection -->
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1.5">1. Select Platform</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" onclick="setCommunityPlatform('reddit')" id="btn-plat-reddit" class="p-2.5 rounded-xl border border-orange-500/50 bg-orange-950/40 text-orange-300 text-xs font-bold flex flex-col items-center gap-1 transition">
+              <i class="fa-brands fa-reddit text-lg"></i>
+              <span>Reddit</span>
+            </button>
+            <button type="button" onclick="setCommunityPlatform('telegram')" id="btn-plat-telegram" class="p-2.5 rounded-xl border border-gray-800 bg-gray-950 text-gray-400 text-xs font-bold flex flex-col items-center gap-1 transition">
+              <i class="fa-brands fa-telegram text-lg text-sky-400"></i>
+              <span>Telegram</span>
+            </button>
+            <button type="button" onclick="setCommunityPlatform('discord')" id="btn-plat-discord" class="p-2.5 rounded-xl border border-gray-800 bg-gray-950 text-gray-400 text-xs font-bold flex flex-col items-center gap-1 transition">
+              <i class="fa-brands fa-discord text-lg text-indigo-400"></i>
+              <span>Discord</span>
+            </button>
+          </div>
+          <input type="hidden" id="comm-platform" value="reddit" />
+        </div>
+
+        <!-- Community Handle / Name -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1" id="comm-target-label">Community Name or Handle</label>
+          <div class="relative">
+            <span class="absolute left-3 top-2.5 text-xs text-gray-500 font-mono" id="comm-prefix">r/</span>
+            <input type="text" id="comm-target-name" class="w-full bg-gray-950 border border-gray-700 rounded-xl pl-8 pr-3 py-2 text-xs text-white outline-none focus:border-cyan-500 font-mono" placeholder="saasgrowth or freelance_india" />
+          </div>
+          <p class="text-[11px] text-gray-500 mt-1">E.g. r/freelance, r/webdev, or your custom subreddit/group.</p>
+        </div>
+
+        <!-- Target Industry Field -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Target Industry / Category</label>
+          <select id="comm-category" class="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-cyan-500">
+            <option value="Tech & Dev">💻 Tech & Full-Stack Dev</option>
+            <option value="AI & Automation">🤖 AI, LLMs & Automation</option>
+            <option value="Design & Creative">🎨 UI/UX, Design & 3D</option>
+            <option value="Video & Content">🎬 Video Editing & Creators</option>
+            <option value="Marketing & SEO">📈 B2B Marketing & SEO</option>
+            <option value="E-Commerce & Retail">🛍️ E-Commerce & Shopify</option>
+            <option value="Startups & SaaS" selected>🚀 Startups, Founders & SaaS</option>
+            <option value="Mobile Apps">📱 Mobile App Development</option>
+            <option value="DevOps & Cloud">☁️ DevOps, Cloud & Infra</option>
+            <option value="Local Biz & Finance">💼 Local Business & Finance</option>
+            <option value="Hiring & Freelance">🤝 General Hiring & Freelance Hubs</option>
+          </select>
+        </div>
+
+        <!-- Alert Email (Optional) -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 mb-1">Notification Email (Optional)</label>
+          <input type="email" id="comm-email" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-cyan-500" placeholder="your-email@example.com" />
+          <p class="text-[11px] text-gray-500 mt-1">Receive 1-click email alerts whenever a buyer posts in this community.</p>
+        </div>
+
+        <!-- Connected Communities List -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">Your Connected Communities</label>
+            <span class="text-[10px] text-gray-500 font-mono" id="comm-active-count">0 connected</span>
+          </div>
+          <div id="custom-communities-list" class="flex flex-col gap-2 max-h-36 overflow-y-auto">
+            <div class="p-3 rounded-xl bg-gray-950 border border-gray-800 text-center text-xs text-gray-500">
+              No custom communities connected yet. Add one above!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-gray-800 flex items-center justify-between bg-gray-950/60">
+        <button onclick="closeCommunityModal()" class="px-4 py-2 text-xs text-gray-400 hover:text-white">Close</button>
+        <button onclick="submitCustomCommunity()" id="btn-submit-community" class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-cyan-500/20 transition flex items-center gap-2">
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>Connect & Scan Leads</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ================= MODAL: DIRECT USER & BETA FEEDBACK ================= -->
   <div id="feedback-modal" onclick="if(event.target===this)closeFeedbackModal()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 items-center justify-center p-4" style="display: none;">
     <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
@@ -835,7 +961,7 @@
           </div>
           <div>
             <h3 class="text-sm font-bold text-white flex items-center gap-2">
-              <span>BizFlow Beta Feedback & Review</span>
+              <span>LeedsFlow Beta Feedback & Review</span>
               <span class="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/60 text-[10px] font-mono">100% Direct</span>
             </h3>
             <p class="text-xs text-gray-400">Roast us, suggest missing communities, or request features</p>
@@ -1017,6 +1143,7 @@
       loadLeads(true);
       fetchStats();
       loadIntegrations();
+      loadCustomCommunities();
       startAutoSyncLoop();
     });
 
@@ -1856,7 +1983,7 @@
     // ================= VIRAL REFERRAL & SOCIAL SHARE MECHANICS =================
     function shareLeadTwitter(title, niche, leadId) {
       trackClientSession('share_twitter', `Lead #${leadId} (${niche})`);
-      const text = encodeURIComponent(`🔥 Live buyer intent lead in #${niche.replace(/\s+/g, '')}: "${title.substring(0, 80)}..."\n\nFound via @BizFlowAI LeadRadar (100+ communities monitored live):\n`);
+      const text = encodeURIComponent(`🔥 Live buyer intent lead in #${niche.replace(/\s+/g, '')}: "${title.substring(0, 80)}..."\n\nFound via @LeedsFlowAI LeadRadar (100+ communities monitored live):\n`);
       const url = encodeURIComponent(`https://bizflow-platform.vercel.app/?ref=share_tw_${leadId}`);
       window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=450');
     }
@@ -1869,7 +1996,7 @@
 
     function shareLeadWhatsApp(title, leadId) {
       trackClientSession('share_whatsapp', `Lead #${leadId}`);
-      const text = encodeURIComponent(`⚡ Check out this verified client lead: "${title.substring(0, 80)}..."\n\nLive on BizFlow LeadRadar: https://bizflow-platform.vercel.app/?ref=share_wa_${leadId}`);
+      const text = encodeURIComponent(`⚡ Check out this verified client lead: "${title.substring(0, 80)}..."\n\nLive on LeedsFlow LeadRadar: https://bizflow-platform.vercel.app/?ref=share_wa_${leadId}`);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     }
 
@@ -1885,7 +2012,7 @@
 
     function copyEmbedBadgeSnippet() {
       trackClientSession('copy_embed_badge', 'Website Backlink Widget');
-      const snippet = `<a href="https://bizflow-platform.vercel.app/" target="_blank" title="Powered by BizFlow AI LeadRadar">\n  <img src="https://bizflow-platform.vercel.app/badge.svg" alt="Powered by BizFlow AI LeadRadar" width="220" height="38" />\n</a>`;
+      const snippet = `<a href="https://bizflow-platform.vercel.app/" target="_blank" title="Powered by LeedsFlow AI LeadRadar">\n  <img src="https://bizflow-platform.vercel.app/badge.svg" alt="Powered by LeedsFlow AI LeadRadar" width="220" height="38" />\n</a>`;
       navigator.clipboard.writeText(snippet).then(() => {
         const btn = document.getElementById('btn-copy-embed');
         if (btn) btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i><span>Copied HTML!</span>';

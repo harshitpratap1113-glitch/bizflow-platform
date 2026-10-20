@@ -81,7 +81,7 @@ def init_db():
     except Exception:
         pass
     
-    # 3. Monitored Target Subreddits & Sources
+    # 3. Monitored Target Subreddits & Sources (Custom Community Connect)
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS radar_targets (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -89,10 +89,18 @@ def init_db():
         target_name TEXT NOT NULL, -- e.g. r/SaaS, r/forhire
         category TEXT, -- hiring, saas, ai, webdev, mobile, ecommerce, devops
         is_active INTEGER DEFAULT 1,
+        leads_found INTEGER DEFAULT 0,
+        contact_email TEXT DEFAULT '',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         last_crawled_at TIMESTAMP,
         UNIQUE(platform, target_name)
     )
     """)
+    for col in ["leads_found INTEGER DEFAULT 0", "contact_email TEXT DEFAULT ''", "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"]:
+        try:
+            cursor.execute(f"ALTER TABLE radar_targets ADD COLUMN {col}")
+        except Exception:
+            pass
 
     # 4. Outbound Pitch & Campaign Logs
     cursor.execute("""

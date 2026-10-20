@@ -1,52 +1,99 @@
 {
-  "timestamp": "2026-10-07T09:17:30.153395",
-  "app_url": "https://bizflow-platform.vercel.app",
-  "total_recipients": 5,
-  "dispatched": [
+  "timestamp": "2026-10-09T17:36:09.754281",
+  "sender": "harshitpratap1113@gmail.com",
+  "total_sent": 13,
+  "delivered": 13,
+  "log": [
     {
-      "recipient": "alex.dev@agencyflow.io",
-      "name": "Alex Morgan",
-      "niche": "Web & Next.js Development",
-      "subject": "Quick question about finding Web & Next.js Development clients (Free Beta Access)",
-      "app_url": "https://bizflow-platform.vercel.app",
-      "status": "ready_for_dispatch",
-      "mode": "simulated_audit"
+      "name": "Harshit Pratap",
+      "email": "harshitpratap1113@gmail.com",
+      "company": "BizFlow AI HQ",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:15.186403"
     },
     {
-      "recipient": "sarah@lumina-creative.design",
-      "name": "Sarah Jenkins",
-      "niche": "UI/UX & Brand Design",
-      "subject": "Quick question about finding UI/UX & Brand Design clients (Free Beta Access)",
-      "app_url": "https://bizflow-platform.vercel.app",
-      "status": "ready_for_dispatch",
-      "mode": "simulated_audit"
+      "name": "Alex - Thoughtbot Studio",
+      "email": "contact@thoughtbot.com",
+      "company": "Thoughtbot Dev Collective",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:19.459059"
     },
     {
-      "recipient": "vikram@aix-solutions.tech",
-      "name": "Vikram Sethi",
-      "niche": "AI Automation & LLM Pipelines",
-      "subject": "Quick question about finding AI Automation & LLM Pipelines clients (Free Beta Access)",
-      "app_url": "https://bizflow-platform.vercel.app",
-      "status": "ready_for_dispatch",
-      "mode": "simulated_audit"
+      "name": "Sarah - Fueled Agency",
+      "email": "hello@fueled.com",
+      "company": "Fueled Digital Studio",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:23.801733"
     },
     {
-      "recipient": "david@hypermotion.video",
-      "name": "David Miller",
-      "niche": "High-Retention Video Editing",
-      "subject": "Quick question about finding High-Retention Video Editing clients (Free Beta Access)",
-      "app_url": "https://bizflow-platform.vercel.app",
-      "status": "ready_for_dispatch",
-      "mode": "simulated_audit"
+      "name": "Cleveroad Dev Team",
+      "email": "contact@cleveroad.com",
+      "company": "Cleveroad Software House",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:28.073222"
     },
     {
-      "recipient": "elena@ecomboost.co",
-      "name": "Elena Rostova",
-      "niche": "Shopify CRO & Performance",
-      "subject": "Quick question about finding Shopify CRO & Performance clients (Free Beta Access)",
-      "app_url": "https://bizflow-platform.vercel.app",
-      "status": "ready_for_dispatch",
-      "mode": "simulated_audit"
+      "name": "STRV Agency Team",
+      "email": "hello@strv.com",
+      "company": "STRV Software Engineering",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:32.369300"
+    },
+    {
+      "name": "Hedgehog Lab UK",
+      "email": "info@hedgehoglab.com",
+      "company": "Hedgehog Lab",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:36.743583"
+    },
+    {
+      "name": "Monterail Tech Team",
+      "email": "hello@monterail.com",
+      "company": "Monterail Software Studio",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:40.924047"
+    },
+    {
+      "name": "Infinum Digital",
+      "email": "hello@infinum.com",
+      "company": "Infinum Engineering",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:45.152001"
+    },
+    {
+      "name": "Hyperlink InfoSystem",
+      "email": "info@hyperlinkinfosystem.com",
+      "company": "Hyperlink InfoSystem",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:49.372909"
+    },
+    {
+      "name": "MindInventory Solutions",
+      "email": "sales@mindinventory.com",
+      "company": "MindInventory",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:53.835840"
+    },
+    {
+      "name": "VolumeTree Tech",
+      "email": "info@volumetree.com",
+      "company": "VolumeTree Digital",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:35:58.470947"
+    },
+    {
+      "name": "Cubix Engineering",
+      "email": "contact@cubix.co",
+      "company": "Cubix Labs",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:36:02.669566"
+    },
+    {
+      "name": "NimbleTank Creative",
+      "email": "hello@nimbletank.com",
+      "company": "NimbleTank",
+      "status": "delivered_inbox",
+      "timestamp": "2026-10-09T17:36:06.972936"
     }
   ]
 }

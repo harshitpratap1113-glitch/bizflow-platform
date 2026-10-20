@@ -2,14 +2,14 @@ import os
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "BizFlow AI - LeadRadar"
+    PROJECT_NAME: str = "LeedsFlow AI - Ultra LeadRadar"
     VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
     
     # Storage
     DB_PATH: str = os.environ.get(
-        "BIZFLOW_DB_PATH", 
-        os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "bizflow.db")
+        "LEEDSFLOW_DB_PATH",
+        os.environ.get("BIZFLOW_DB_PATH", os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "bizflow.db"))
     )
     
     # Telegram Notifications

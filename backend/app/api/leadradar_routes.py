@@ -439,12 +439,104 @@ def list_all_feedbacks(limit: int = 50):
     return {"status": "success", "count": len(rows), "feedbacks": [dict(r) for r in rows]}
 
 # =====================================================================
+# 🌐 USER COMMUNITY CONNECT ENGINE (Subreddits, Discord, Telegram, Webhooks)
+# =====================================================================
+class CustomCommunityRequest(BaseModel):
+    platform: str = "reddit"  # reddit, telegram, discord, custom
+    target_name: str          # e.g. "saasgrowth", "r/freelance_india", "t.me/channel"
+    category: Optional[str] = "Tech & Dev"
+    contact_email: Optional[str] = ""
+    auto_crawl: Optional[bool] = True
+
+@router.get("/communities/custom")
+def list_custom_communities():
+    """Returns all user-connected communities actively monitored by LeedsFlow."""
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM radar_targets WHERE is_active = 1 ORDER BY id DESC")
+    rows = cursor.fetchall()
+    conn.close()
+    return {"status": "success", "count": len(rows), "communities": [dict(r) for r in rows]}
+
+@router.post("/communities/add")
+def add_custom_community(req: CustomCommunityRequest):
+    """
+    Connects a user's own community (Subreddit, Telegram channel, Discord) to LeedsFlow.
+    Instantly crawls initial posts, classifies into Tri-Box, and sets up live monitoring.
+    """
+    platform = (req.platform or "reddit").lower().strip()
+    raw_target = (req.target_name or "").strip()
+    clean_target = raw_target
+    
+    if platform == "reddit":
+        clean_target = clean_target.replace("https://www.reddit.com/r/", "").replace("https://reddit.com/r/", "").replace("r/", "").strip("/")
+        if not clean_target:
+            raise HTTPException(status_code=400, detail="Please enter a valid subreddit name (e.g. 'saasgrowth')")
+    elif platform in ["telegram", "discord"]:
+        clean_target = clean_target.replace("https://t.me/", "@").strip("/")
+        if not clean_target:
+            raise HTTPException(status_code=400, detail="Please enter a valid channel/group handle or URL")
+
+    conn = get_db()
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+    INSERT INTO radar_targets (platform, target_name, category, is_active, contact_email, last_crawled_at)
+    VALUES (?, ?, ?, 1, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(platform, target_name) DO UPDATE SET
+    category = excluded.category,
+    is_active = 1,
+    contact_email = excluded.contact_email,
+    last_crawled_at = CURRENT_TIMESTAMP
+    """, (platform, clean_target, req.category or "Tech & Dev", req.contact_email or ""))
+    conn.commit()
+    
+    ingested_leads = 0
+    if platform == "reddit" and req.auto_crawl:
+        try:
+            from app.modules.leadradar.live_crawler import crawl_reddit_sub
+            new_posts = crawl_reddit_sub(clean_target)
+            for lead in new_posts:
+                cursor.execute("""
+                INSERT OR REPLACE INTO leads (
+                    platform, platform_id, community, title, body, author, url,
+                    intent_score, intent_category, matched_keywords, budget_detected,
+                    lead_box, is_spam, spam_reason, spam_confidence
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, lead)
+                if cursor.rowcount > 0:
+                    ingested_leads += 1
+            cursor.execute("UPDATE radar_targets SET leads_found = leads_found + ? WHERE platform = ? AND target_name = ?", (ingested_leads, platform, clean_target))
+            conn.commit()
+        except Exception:
+            pass
+
+    conn.close()
+    return {
+        "status": "success",
+        "message": f"Community '{clean_target}' successfully connected to LeedsFlow LeadRadar!",
+        "community": clean_target,
+        "platform": platform,
+        "category": req.category or "Tech & Dev",
+        "initial_leads_ingested": ingested_leads
+    }
+
+@router.delete("/communities/delete/{target_id}")
+def delete_custom_community(target_id: int):
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE radar_targets SET is_active = 0 WHERE id = ?", (target_id,))
+    conn.commit()
+    conn.close()
+    return {"status": "success", "message": "Community removed from active radar targets"}
+
+# =====================================================================
 # 📧 1-CLICK OUTBOUND EMAIL DISPATCHER ENGINE
 # =====================================================================
 class OutboxPitchRequest(BaseModel):
     lead_id: int
     custom_pitch: Optional[str] = ""
-    sender_name: Optional[str] = "Harshit Pratap | BizFlow AI"
+    sender_name: Optional[str] = "Harshit Pratap | LeedsFlow AI"
     sender_email: Optional[str] = "harshitpratap1113@gmail.com"
     sender_whatsapp: Optional[str] = ""
     target_email: Optional[str] = ""
@@ -475,7 +567,7 @@ def send_lead_pitch_email(req: OutboxPitchRequest):
     community = lead_dict.get("community", "Community")
     target_email = req.target_email if req.target_email else f"{author.lower()}@gmail.com"
 
-    subject = f"⚡ Tailored Proposal: {title[:50]}... (via BizFlow AI)"
+    subject = f"⚡ Tailored Proposal: {title[:50]}... (via LeedsFlow AI)"
     pitch_body = req.custom_pitch if req.custom_pitch else (lead_dict.get("ai_pitch_draft") or "Hey! Saw your project requirements and would love to help deliver this.")
 
     # Format clean email body

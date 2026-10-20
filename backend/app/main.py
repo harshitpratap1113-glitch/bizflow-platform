@@ -17,7 +17,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
 )
-logger = logging.getLogger("bizflow.main")
+logger = logging.getLogger("leedsflow.main")
 
 # Background Periodic Scanner Worker (Local / Daemon Mode)
 async def background_scanner_loop():
@@ -46,7 +46,7 @@ async def background_scanner_loop():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup:
-    logger.info("[*] Initializing BizFlow AI Database...")
+    logger.info("[*] Initializing LeedsFlow AI Database...")
     try:
         init_db()
     except Exception as e:

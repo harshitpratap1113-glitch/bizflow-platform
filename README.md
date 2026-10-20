@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🚀 BizFlow AI — Client Acquisition & Tri-Box LeadRadar
+# 🚀 LeedsFlow AI — Client Acquisition & Tri-Box LeadRadar
 
 ### *Automate High-Intent B2B Prospecting, Lead Enrichment & Outbound Sequencing in 1-Click*
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-bizflow--platform.vercel.app-6366F1?style=for-the-badge&logo=vercel&logoColor=white)](https://bizflow-platform.vercel.app)
-[![Architecture](https://img.shields.io/badge/Architecture-Jamstack_%2B_Edge-black?style=for-the-badge&logo=jamstack&logoColor=white)](https://bizflow-platform.vercel.app)
+[![Architecture](https://img.shields.io/badge/Architecture-FastAPI_%2B_Vercel_Edge-black?style=for-the-badge&logo=fastapi&logoColor=white)](https://bizflow-platform.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Author](https://img.shields.io/badge/Author-Harshit_Pratap-DA552F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/harshitpratap1113-glitch)
 
@@ -19,7 +19,7 @@
 
 ## 🌟 Overview
 
-**BizFlow AI** is an all-in-one client acquisition and automated lead pipeline platform built for agency owners, SaaS founders, and sales development teams. It replaces manual LinkedIn & cold database prospecting with an automated **Tri-Box LeadRadar** architecture that identifies high-value decision-makers, validates their deliverability, and drafts high-converting outbound copy in seconds.
+**LeedsFlow AI** (formerly BizFlow) is an all-in-one client acquisition and automated buyer intent radar platform built for agency owners, SaaS founders, and freelance professionals. It monitors 220+ high-traffic developer, design, and business communities in real-time with an intelligent **Tri-Box LeadRadar** architecture and custom community connect capability.
 
 ---
 
