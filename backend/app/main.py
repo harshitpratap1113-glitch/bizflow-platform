@@ -226,9 +226,9 @@ async def root():
     for c in candidates:
         if os.path.exists(c):
             return FileResponse(c)
-    return {"message": "BizFlow AI Backend is running!", "status": "online", "docs": "/docs"}
+    return {"message": "LeedsFlow AI Backend is running!", "status": "online", "docs": "/docs"}
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "BizFlow AI LeadRadar"}
+    return {"status": "healthy", "service": "LeedsFlow AI LeadRadar"}
 
