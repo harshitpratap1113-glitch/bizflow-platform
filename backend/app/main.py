@@ -192,7 +192,7 @@ async def serve_badge_svg():
 @app.get("/robots.txt")
 async def robots_txt():
     from fastapi.responses import PlainTextResponse
-    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://bizflow-platform.vercel.app/sitemap.xml\n")
+    return PlainTextResponse("User-agent: *\nAllow: /\nSitemap: https://leedsflow-platform.vercel.app/sitemap.xml\n")
 
 @app.get("/sitemap.xml")
 async def sitemap_xml():
@@ -200,14 +200,14 @@ async def sitemap_xml():
     xml_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bizflow-platform.vercel.app/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://leedsflow-platform.vercel.app/</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bizflow-platform.vercel.app/static/index.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://leedsflow-platform.vercel.app/static/index.html</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
