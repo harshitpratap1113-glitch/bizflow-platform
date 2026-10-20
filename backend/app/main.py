@@ -2,7 +2,7 @@ import asyncio
 import logging
 import os
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -12,6 +12,7 @@ from app.db.database import init_db, get_db
 from app.api.leadradar_routes import router as leadradar_router
 from app.modules.leadradar.scanner import scanner
 from app.modules.leadradar.notifier import ws_manager
+from app.services.visitor_notifier import notify_visitor_arrival
 
 logging.basicConfig(
     level=logging.INFO,
@@ -82,6 +83,30 @@ app.add_middleware(
 app.include_router(leadradar_router, prefix="/api/leadradar", tags=["LeadRadar"])
 app.include_router(leadradar_router, prefix="/api/v1/leadradar", tags=["LeadRadar v1"])
 app.include_router(leadradar_router, prefix=settings.API_V1_STR, tags=["API v1"])
+
+# Direct Visitor Alert Telemetry Endpoint (Beacon / Fetch)
+@app.api_route("/api/telemetry/visitor-ping", methods=["GET", "POST"])
+async def direct_telemetry_ping(request: Request, background_tasks: BackgroundTasks):
+    forwarded = request.headers.get("x-forwarded-for")
+    client_ip = forwarded.split(",")[0].strip() if forwarded else (request.client.host if request.client else "127.0.0.1")
+    country_code = (request.headers.get("x-vercel-ip-country") or "IN").upper()
+    city = request.headers.get("x-vercel-ip-city") or "Live Visitor"
+    ua = request.headers.get("user-agent", "")
+    
+    visitor_info = {
+        "ip": client_ip,
+        "country": country_code,
+        "city": city,
+        "device": "Mobile" if any(x in ua for x in ["Android", "iPhone", "Mobile"]) else "Desktop",
+        "browser": "Chrome" if "Chrome" in ua else ("Safari" if "Safari" in ua else "Browser"),
+        "os": "Android" if "Android" in ua else ("iOS" if "iPhone" in ua else "Windows"),
+        "path": "/",
+        "referrer": request.headers.get("referer") or "Direct Navigation",
+        "session_id": "beacon_ping",
+        "metadata": "Beacon Ping"
+    }
+    background_tasks.add_task(notify_visitor_arrival, visitor_info)
+    return {"status": "ok", "ping": "received", "client_ip": client_ip}
 
 # Real-time WebSocket Endpoint
 @app.websocket("/ws/leads")

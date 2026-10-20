@@ -2251,7 +2251,7 @@
 
 
 
-    // Auto-Register Client Session Tracker
+    // Auto-Register Client Session Tracker & Real-Time Alert Engine
     async function trackClientSession(eventType = 'pageview', meta = '') {
       let sessId = localStorage.getItem('leedsflow_session_id');
       if (!sessId) {
@@ -2259,24 +2259,47 @@
         localStorage.setItem('leedsflow_session_id', sessId);
       }
 
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-      const ref = document.referrer ? (document.referrer.includes('producthunt') ? 'Product Hunt Launch' : (document.referrer.includes('reddit') ? 'Reddit' : document.referrer)) : 'Direct (.app domain)';
+      const ua = navigator.userAgent || '';
+      const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
+      const isMac = navigator.platform && navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      const isLinux = navigator.platform && navigator.platform.toUpperCase().indexOf('LINUX') >= 0;
+      
+      let detectedBrowser = 'Chrome';
+      if (ua.includes('Edg/')) detectedBrowser = 'Microsoft Edge';
+      else if (ua.includes('Firefox/')) detectedBrowser = 'Mozilla Firefox';
+      else if (ua.includes('Safari/') && !ua.includes('Chrome')) detectedBrowser = 'Apple Safari';
+      else if (ua.includes('OPR/') || ua.includes('Opera/')) detectedBrowser = 'Opera';
 
+      let detectedOS = isMobile ? (/iPhone|iPad|iPod/i.test(ua) ? 'iOS' : 'Android') : (isMac ? 'macOS' : (isLinux ? 'Linux' : 'Windows'));
+      const ref = document.referrer ? (document.referrer.includes('producthunt') ? 'Product Hunt Launch' : (document.referrer.includes('reddit') ? 'Reddit' : document.referrer)) : 'Direct (.app domain)';
+      const screenRes = `${window.screen.width}x${window.screen.height}`;
+
+      // Dispatch non-blocking telemetry event to LeedsFlow backend
       try {
-        await fetch('/api/leadradar/analytics/track', {
+        fetch('/api/leadradar/analytics/track', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             session_id: sessId,
-            path: window.location.pathname + window.location.hash,
+            path: window.location.pathname + window.location.search + window.location.hash,
             referrer: ref,
             event_type: eventType,
             device: isMobile ? 'Mobile' : 'Desktop',
-            os: isMac ? 'macOS' : (isMobile ? 'iOS/Android' : 'Windows'),
-            metadata: meta || 'Active User Session'
+            browser: detectedBrowser,
+            os: detectedOS,
+            metadata: `${meta || 'Active User Session'} [Res: ${screenRes}, Lang: ${navigator.language || 'en'}]`
           })
-        });
+        }).catch(()=>{});
+
+        // Instant Fire-and-Forget Beacon Ping on first session load
+        if (!sessionStorage.getItem('leedsflow_alert_beacon_sent')) {
+          sessionStorage.setItem('leedsflow_alert_beacon_sent', '1');
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/telemetry/visitor-ping');
+          } else {
+            fetch('/api/telemetry/visitor-ping', { method: 'POST', keepalive: true }).catch(()=>{});
+          }
+        }
       } catch (e) {}
     }
 

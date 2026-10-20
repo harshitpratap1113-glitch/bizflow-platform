@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query, Body
+from fastapi import APIRouter, HTTPException, Query, Body, Request, BackgroundTasks
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import os
@@ -6,6 +6,7 @@ import json
 import sqlite3
 import random
 from app.db.database import get_db
+from app.services.visitor_notifier import notify_visitor_arrival, COUNTRY_MAP
 
 router = APIRouter()
 
@@ -636,33 +637,99 @@ class TrackVisitorRequest(BaseModel):
     os: Optional[str] = None
     metadata: Optional[str] = None
 
+def extract_visitor_ip(request: Request) -> str:
+    """Extracts genuine client IP considering Vercel Edge proxies."""
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    real_ip = request.headers.get("x-real-ip")
+    if real_ip:
+        return real_ip.strip()
+    if request.client and request.client.host:
+        return request.client.host
+    return "127.0.0.1"
+
 @router.post("/analytics/track")
-def track_visitor_event(req: TrackVisitorRequest):
+def track_visitor_event(req: TrackVisitorRequest, request: Request, background_tasks: BackgroundTasks):
     conn = get_db()
     cursor = conn.cursor()
     
-    # Auto-infer defaults if not supplied
-    country = req.country or "United States"
-    city = req.city or "San Francisco"
-    country_code = req.country_code or "US"
+    # 1. Real IP Detection
+    client_ip = extract_visitor_ip(request)
+    
+    # 2. Vercel GeoIP Headers resolution
+    vercel_country = request.headers.get("x-vercel-ip-country")
+    vercel_city = request.headers.get("x-vercel-ip-city")
+    
+    country_code = (req.country_code or vercel_country or "US").upper()
+    city = req.city or vercel_city or "San Francisco"
+    
+    if country_code in COUNTRY_MAP:
+        country = COUNTRY_MAP[country_code][0]
+    elif req.country:
+        country = req.country
+    else:
+        country = "India" if country_code == "IN" else "United States"
+
     device = req.device or "Desktop"
     browser = req.browser or "Chrome"
     os_name = req.os or "Windows"
     referrer = req.referrer or "Direct (.app domain)"
     event_type = req.event_type or "pageview"
     
+    # Persist to database
     cursor.execute("""
     INSERT INTO visitor_analytics (
         session_id, ip_address, country, city, country_code, device, browser, os, path, referrer, event_type, metadata
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
-        req.session_id, "127.0.0.1", country, city, country_code,
+        req.session_id, client_ip, country, city, country_code,
         device, browser, os_name, req.path or "/", referrer, event_type, req.metadata or ""
     ))
     conn.commit()
     conn.close()
     
-    return {"status": "success", "event_tracked": event_type}
+    # Trigger instant email notification in non-blocking background task
+    if event_type in ["pageview", "session_start", "Initial Page Visit"]:
+        visitor_info = {
+            "ip": client_ip,
+            "country": country_code,
+            "city": city,
+            "device": device,
+            "browser": browser,
+            "os": os_name,
+            "path": req.path or "/",
+            "referrer": referrer,
+            "session_id": req.session_id or "sess_anon",
+            "metadata": req.metadata or "Live Pageview"
+        }
+        background_tasks.add_task(notify_visitor_arrival, visitor_info)
+    
+    return {"status": "success", "event_tracked": event_type, "client_ip": client_ip}
+
+@router.post("/telemetry/visitor-ping")
+@router.get("/telemetry/visitor-ping")
+def telemetry_visitor_ping(request: Request, background_tasks: BackgroundTasks):
+    """Zero-overhead ping endpoint for beacon or direct fetch."""
+    client_ip = extract_visitor_ip(request)
+    vercel_country = request.headers.get("x-vercel-ip-country") or "IN"
+    vercel_city = request.headers.get("x-vercel-ip-city") or "Live Visitor"
+    ua = request.headers.get("user-agent", "")
+    
+    visitor_info = {
+        "ip": client_ip,
+        "country": vercel_country,
+        "city": vercel_city,
+        "device": "Mobile" if any(x in ua for x in ["Android", "iPhone", "Mobile"]) else "Desktop",
+        "browser": "Chrome" if "Chrome" in ua else ("Safari" if "Safari" in ua else "Browser"),
+        "os": "Android" if "Android" in ua else ("iOS" if "iPhone" in ua else "Windows"),
+        "path": "/",
+        "referrer": request.headers.get("referer") or "Direct Navigation",
+        "session_id": "beacon_ping",
+        "metadata": "Beacon Ping"
+    }
+    background_tasks.add_task(notify_visitor_arrival, visitor_info)
+    return {"status": "ok", "ping": "received", "client_ip": client_ip}
 
 @router.get("/analytics/stats")
 def get_analytics_dashboard_stats():
