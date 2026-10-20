@@ -17,7 +17,7 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Canonical URL & Indexing Directives -->
-  <link rel="canonical" href="https://bizflow-platform.vercel.app/" />
+  <link rel="canonical" href="https://leedsflow-platform.vercel.app/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="keywords" content="B2B lead generation, reddit lead finder, client acquisition SaaS, buyer intent radar, automated client finder, AI cold email pitch generator, social media scraper for agencies, freelance client leads" />
   <meta name="author" content="Harshit Pratap" />
@@ -29,9 +29,9 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://bizflow-platform.vercel.app/#webapp",
+        "@id": "https://leedsflow-platform.vercel.app/#webapp",
         "name": "LeedsFlow AI LeadRadar",
-        "url": "https://bizflow-platform.vercel.app/",
+        "url": "https://leedsflow-platform.vercel.app/",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -52,11 +52,11 @@
       },
       {
         "@type": "Organization",
-        "@id": "https://bizflow-platform.vercel.app/#organization",
+        "@id": "https://leedsflow-platform.vercel.app/#organization",
         "name": "LeedsFlow AI",
-        "url": "https://bizflow-platform.vercel.app/",
-        "logo": "https://bizflow-platform.vercel.app/android-chrome-512x512.png",
-        "image": "https://bizflow-platform.vercel.app/og-image.png",
+        "url": "https://leedsflow-platform.vercel.app/",
+        "logo": "https://leedsflow-platform.vercel.app/android-chrome-512x512.png",
+        "image": "https://leedsflow-platform.vercel.app/og-image.png",
         "founder": {
           "@type": "Person",
           "name": "Harshit Pratap"
@@ -70,7 +70,7 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "https://bizflow-platform.vercel.app/#faq",
+        "@id": "https://leedsflow-platform.vercel.app/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -112,15 +112,15 @@
 
   <!-- Open Graph / Social / Search Meta -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://bizflow-platform.vercel.app/" />
+  <meta property="og:url" content="https://leedsflow-platform.vercel.app/" />
   <meta property="og:title" content="LeedsFlow AI — Ultra LeadRadar (100+ Live Multi-Industry Streams)" />
   <meta property="og:description" content="Worldwide multi-industry buyer intent radar across 100+ communities with real-time live ticker, 10 industry fields, and Tri-Box routing." />
-  <meta property="og:image" content="https://bizflow-platform.vercel.app/og-image.png" />
+  <meta property="og:image" content="https://leedsflow-platform.vercel.app/og-image.png" />
   <meta property="og:site_name" content="LeedsFlow AI LeadRadar" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LeedsFlow AI — Ultra LeadRadar" />
   <meta name="twitter:description" content="Worldwide multi-industry buyer intent radar across 100+ communities with real-time live ticker." />
-  <meta name="twitter:image" content="https://bizflow-platform.vercel.app/og-image.png" />
+  <meta name="twitter:image" content="https://leedsflow-platform.vercel.app/og-image.png" />
   
   <!-- Tailwind CSS & FontAwesome Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -412,6 +412,20 @@
               </div>
             </div>
             <span class="text-xs px-2 py-0.5 rounded-full bg-red-900/60 text-red-200 font-mono font-bold" id="badge-spam-box">--</span>
+          </button>
+
+          <!-- BOX 4: REDDIT CLIENTRADAR (ZERO-SPAM PAIN HUNTER) -->
+          <button onclick="switchView('client_radar')" data-box="client_radar" class="box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold text-amber-400 hover:text-amber-300 bg-amber-950/20 hover:bg-amber-950/40 border border-amber-900/40 transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-amber-950/80 border border-amber-500/40 flex items-center justify-center text-amber-400 text-sm">
+                <i class="fa-solid fa-radar"></i>
+              </div>
+              <div class="leading-tight">
+                <span class="block text-xs font-bold text-white">4. Reddit ClientRadar</span>
+                <span class="text-[10px] text-amber-400/80 font-medium">Zero-Spam Pain Hunter</span>
+              </div>
+            </div>
+            <span class="text-[9px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono font-bold" id="badge-radar-box">8 LEADS</span>
           </button>
 
         </nav>
@@ -912,6 +926,70 @@
     </div>
   </div>
 
+  <!-- ================= MODAL: REDDIT CLIENTRADAR AI PITCH ================= -->
+  <div id="cr-pitch-modal" onclick="if(event.target===this)closeClientRadarModal()" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4" style="display: none;">
+    <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+      <button onclick="closeClientRadarModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition p-2">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg font-bold border border-amber-500/30">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div>
+          <h4 class="text-base font-bold text-white flex items-center gap-2">
+            <span>AI Value-First Diagnostic Pitch</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono">Anti-Spam</span>
+          </h4>
+          <p class="text-xs text-gray-400">Wins clients with immediate architectural value — 0% generic spam</p>
+        </div>
+      </div>
+
+      <div class="mb-4 p-3.5 rounded-xl bg-gray-950/80 border border-gray-800">
+        <div class="text-[10px] font-bold text-amber-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+          <i class="fa-brands fa-reddit"></i> Target Reddit Discussion
+        </div>
+        <div id="cr-modal-post-title" class="text-xs text-gray-200 font-medium line-clamp-1 font-mono"></div>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex items-center justify-between mb-1.5">
+          <label class="text-xs font-semibold text-gray-300 flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold flex items-center justify-center font-mono">1</span>
+            <span>Public Comment (Point out root cause + free 3-step architecture)</span>
+          </label>
+          <button onclick="copyCrComment()" class="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1 font-bold">
+            <i class="fa-regular fa-copy"></i> Copy Comment
+          </button>
+        </div>
+        <textarea id="cr-modal-comment-text" rows="5" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 text-xs text-gray-200 focus:outline-none focus:border-amber-500 font-mono leading-relaxed" readonly></textarea>
+      </div>
+
+      <div class="mb-5">
+        <div class="flex items-center justify-between mb-1.5">
+          <label class="text-xs font-semibold text-gray-300 flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-orange-500/20 text-orange-300 text-[10px] font-bold flex items-center justify-center font-mono">2</span>
+            <span>Private DM (Friendly 1-minute loom or prototype hook)</span>
+          </label>
+          <button onclick="copyCrDm()" class="text-xs text-orange-400 hover:text-orange-300 flex items-center gap-1 font-bold">
+            <i class="fa-regular fa-copy"></i> Copy DM
+          </button>
+        </div>
+        <textarea id="cr-modal-dm-text" rows="3" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-3 text-xs text-gray-200 focus:outline-none focus:border-orange-500 font-mono leading-relaxed" readonly></textarea>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-gray-800">
+        <a id="cr-modal-reddit-link" href="#" target="_blank" class="text-xs text-amber-400 hover:text-amber-300 flex items-center gap-1.5 font-bold transition">
+          <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i> Open Original Reddit Thread
+        </a>
+        <button onclick="closeClientRadarModal()" class="px-5 py-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-orange-600/25 transition">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
   <script>
@@ -1072,6 +1150,8 @@
           loadSpamBox();
         } else if (activeBox === 'general') {
           loadGeneralBox();
+        } else if (activeBox === 'client_radar') {
+          // Keep ClientRadar view active
         } else {
           const res = await fetch(`/api/leadradar/leads/matched?min_score=${minScore}&auto_scan=true`);
           const data = await res.json();
@@ -1256,6 +1336,8 @@
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-lg shadow-red-500/25 transition-all border border-red-400/40';
           } else if (box === 'general') {
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold bg-gradient-to-r from-sky-600 to-cyan-600 text-white shadow-lg shadow-sky-500/25 transition-all border border-sky-400/40';
+          } else if (box === 'client_radar') {
+            btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg shadow-amber-500/25 transition-all border border-amber-400/40';
           } else {
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/25 transition-all border border-orange-400/40';
           }
@@ -1264,6 +1346,8 @@
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold text-red-400 hover:text-red-300 bg-red-950/20 hover:bg-red-950/40 border border-red-900/40 transition-all';
           } else if (btn.dataset.box === 'general') {
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-medium text-gray-300 hover:text-white bg-gray-900/60 hover:bg-gray-800/80 border border-gray-800 transition-all';
+          } else if (btn.dataset.box === 'client_radar') {
+            btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold text-amber-400 hover:text-amber-300 bg-amber-950/20 hover:bg-amber-950/40 border border-amber-900/40 transition-all';
           } else {
             btn.className = 'box-tab-btn w-full flex items-center justify-between p-3 rounded-2xl text-left font-bold text-orange-400 hover:text-orange-300 bg-orange-950/20 hover:bg-orange-950/40 border border-orange-900/40 transition-all';
           }
@@ -1280,6 +1364,11 @@
         document.getElementById('current-stream-subtitle').innerText = 'Unmatched community questions, technical discussions, and casual banter across all 10 fields.';
         document.getElementById('feed-controls-bar').style.display = 'flex';
         loadGeneralBox();
+      } else if (box === 'client_radar') {
+        document.getElementById('current-stream-title').innerHTML = '<i class="fa-solid fa-radar text-amber-400 mr-2"></i> Box 4: Reddit ClientRadar (Zero-Spam Pain Hunter)';
+        document.getElementById('current-stream-subtitle').innerText = 'Scans real business owners frustrated with manual tasks, broken Zapier workflows & spreadsheets. 100% of freelancer spam blocked.';
+        document.getElementById('feed-controls-bar').style.display = 'none';
+        renderClientRadarView();
       } else {
         document.getElementById('feed-controls-bar').style.display = 'flex';
         document.getElementById('current-stream-title').innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> Box 1: Verified Buyer Leads (Kaam Ki Leads)';
@@ -1292,7 +1381,7 @@
     }
 
     function filterLeadsLocally() {
-      if (activeBox === 'spam') return;
+      if (activeBox === 'spam' || activeBox === 'client_radar') return;
       const filtered = getFilteredLeads();
       document.getElementById('feed-count-badge').innerText = `${filtered.length} Leads`;
       if (activeBox === 'general') {
@@ -1656,6 +1745,382 @@
       }
     }
 
+    // ================= RENDER BOX 4: REDDIT CLIENTRADAR ENGINE =================
+    const CLIENT_RADAR_LEADS = [
+      {
+        id: "cr-lead-1",
+        niche: "ecommerce",
+        subreddit: "r/ecommerce",
+        author: "ecom_founder_mike",
+        timeAgo: "2 hours ago",
+        title: "How are you guys managing supplier inventory sync? I'm losing my mind with manual CSVs",
+        rawQuote: "I spend 2 to 3 hours every morning downloading CSVs from 3 different suppliers, matching SKUs in Excel, and manually updating stock on Shopify. Yesterday an item sold out at supplier but still showed 4 on my store. Customer bought it, had to cancel and refund. Is there a custom script or automation to do this automatically?",
+        painScore: 98,
+        budgetEst: "$800 – $1,500",
+        tools: ["Shopify", "Excel/CSV", "FTP/Supplier API"],
+        rootCause: "Supplier CSV column names and SKU formats change dynamically, causing off-the-shelf apps to break without a normalized Python webhook script.",
+        commentPitch: `Hey! I saw you're struggling with syncing your supplier CSVs to Shopify. The main reason standard apps break is that suppliers constantly shift column headers or timestamp formats.\n\nA clean way to solve this permanently is running a lightweight 20-line scheduled Python script (or self-hosted n8n webhook) that:\n1. Auto-fetches the supplier CSV via FTP/email every hour.\n2. Normalizes SKU and stock delta.\n3. Pushes directly to Shopify Admin GraphQL API to toggle out-of-stock items in <30 seconds.\n\nHappy to share the exact webhook architecture logic for free if you want to set it up yourself!`,
+        dmPitch: `Hey Mike, saw your post about the supplier CSV headache on r/ecommerce. Recently built an automated Shopify sync pipeline for an apparel brand that wiped out 10 hours of manual Excel updates each week. If you haven't solved it yet, happy to show you a quick 2-minute prototype or help you get it running.`,
+        redditUrl: "https://www.reddit.com/r/ecommerce/search/?q=supplier+inventory+sync+csv"
+      },
+      {
+        id: "cr-lead-2",
+        niche: "automation",
+        subreddit: "r/zapier",
+        author: "ops_lead_dave",
+        timeAgo: "4 hours ago",
+        title: "Need Help Zapier — Email reminder loop sending to ALL database emails at once!",
+        rawQuote: "I am trying to use Zapier to send automated email reminders to clients if certain fields in Airtable are True. However, when the Zap triggers, it sends the email to all 450 contacts in the database at once instead of individual matching rows. I've wasted my whole weekend on this. Willing to pay someone to fix this ASAP!",
+        painScore: 95,
+        budgetEst: "$300 – $600",
+        tools: ["Zapier", "Airtable", "Gmail API"],
+        rootCause: "The Airtable trigger is outputting a Line-Item array instead of single records, causing the action step to blast the entire array.",
+        commentPitch: `Hey! The reason your Zap is emailing everyone at once is because your Airtable 'Find Records' step is passing a Line-Item Array to the action step, rather than looping through individual rows.\n\nTo fix this:\n1. Insert a 'Looping by Zapier' step right after your trigger.\n2. Map the Record ID array into the loop.\n3. Put the email action inside the loop with a conditional filter (Reminder Sent = False).\n\nThis takes under 15 minutes to configure properly. Happy to explain further if you get stuck on the line-item mapping!`,
+        dmPitch: `Hey Dave, saw your post on r/zapier about the looping disaster. I specialize in fixing broken Zapier & Airtable pipelines. If you're still stuck and don't want to risk blasting your clients again, I can hop on a quick 10-minute screenshare and sort the mapping out for you today.`,
+        redditUrl: "https://www.reddit.com/r/zapier/search/?q=email+reminder+loop"
+      },
+      {
+        id: "cr-lead-3",
+        niche: "smallbiz",
+        subreddit: "r/smallbusiness",
+        author: "hvac_contractor_rob",
+        timeAgo: "6 hours ago",
+        title: "My operations are a complete spreadsheet clusterfuck. How do I transition to real software?",
+        rawQuote: "We started with 1 Google Sheet. Now we have 9 sheets for job scheduling, invoices, employee field hours, and inventory. Formulas keep breaking, staff forgets to enter data, and I spend 10+ hours every weekend manually reconciling bank deposits with invoice numbers. Enterprise software quoted $20k. Need a custom developer to build something lightweight.",
+        painScore: 96,
+        budgetEst: "$1,500 – $3,500",
+        tools: ["Google Sheets", "Invoicing", "Field Ops"],
+        rootCause: "Multiple disconnected spreadsheets with zero relational integrity. Needs a unified Airtable/PostgreSQL backend with a simple Next.js/Tailwind internal admin portal.",
+        commentPitch: `Hey! Do NOT pay $20,000 for legacy enterprise ERPs — they are clunky and your field crew will hate using them.\n\nA much faster, lightweight architecture that costs 90% less:\n1. Migrate the 9 sheets into a clean relational database (Airtable or Supabase).\n2. Set up automated Stripe/QuickBooks bank deposit webhooks to auto-match invoice numbers.\n3. Build a simple 2-page mobile-friendly portal for your field staff to log hours and job status in 2 taps.\n\nSaves 10+ hours a week and can be built incrementally in a few days without locking you into huge software subscriptions.`,
+        dmPitch: `Hey Rob, saw your post about the spreadsheet chaos in r/smallbusiness. I build lightweight internal operations portals specifically for contractors and service businesses to eliminate weekend bookkeeping. Would love to send you a 1-page architecture breakdown of how we streamlined this for another field service client.`,
+        redditUrl: "https://www.reddit.com/r/smallbusiness/search/?q=spreadsheet+clusterfuck"
+      },
+      {
+        id: "cr-lead-4",
+        niche: "scraping",
+        subreddit: "r/forhire",
+        author: "growth_agency_alex",
+        timeAgo: "7 hours ago",
+        title: "[Hiring] Need a Python Developer to build daily price monitoring scraper ($500 Budget)",
+        rawQuote: "Looking for an experienced Python developer to build a reliable scraper that monitors competitor pricing across 4 major retail portals (approx 850 SKUs total) once every 24 hours and updates a Google Sheet. Must handle JavaScript rendering and Cloudflare bot protection reliably. Budget: $500.",
+        painScore: 92,
+        budgetEst: "$500 – $700",
+        tools: ["Python", "Playwright", "Cloudflare Bypass", "Google Sheets API"],
+        rootCause: "Competitor sites use Cloudflare Turnstile and client-side React rendering that blocks standard requests/BeautifulSoup.",
+        commentPitch: `Hey! Standard requests/BeautifulSoup will definitely fail against Cloudflare and client-side hydration on retail sites.\n\nFor 850 SKUs daily, the most reliable setup is:\n1. Headless Playwright using persistent browser contexts or residential proxy rotation.\n2. Directly intercepting internal XHR/Fetch API endpoints (much faster and avoids DOM parsing).\n3. Google Sheets API v4 batch-update to avoid rate limits.\n\nI've built dozens of dynamic retail scrapers that run smoothly 24/7 on cron. Sent you details!`,
+        dmPitch: `Hey Alex, saw your [Hiring] post for the retail price scraper. I build high-resilience scrapers using Playwright and internal API interception (which bypasses heavy anti-bot walls). Can have a working prototype monitoring the first 50 SKUs ready for you within 24 hours.`,
+        redditUrl: "https://www.reddit.com/r/forhire/search/?q=price+monitoring+scraper"
+      },
+      {
+        id: "cr-lead-5",
+        niche: "realestate",
+        subreddit: "r/realtors",
+        author: "broker_mark_tx",
+        timeAgo: "8 hours ago",
+        title: "Speed-to-lead problem: Losing Facebook ad buyer leads because agents call 2 hours late",
+        rawQuote: "We are spending $3,000/mo on Facebook and Zillow ads. Leads come into our email, but my agents take 2-3 hours to follow up. By then, the buyer is already on another site. Need a system to instantly text the buyer a calendar link and alert the assigned agent via SMS within 30 seconds.",
+        painScore: 97,
+        budgetEst: "$1,000 – $2,000",
+        tools: ["Facebook Lead Ads", "Twilio SMS", "Calendly/CRM"],
+        rootCause: "Relying on email notifications instead of real-time webhook-to-SMS speed-to-lead automation.",
+        commentPitch: `Hey Mark! In real estate, lead conversion drops by 391% if you don't respond within 5 minutes. Email alerts are completely dead for speed-to-lead.\n\nHere is the exact automated flow that fixes this:\n1. Facebook Lead Form webhook triggers instantly (0.5s latency).\n2. Twilio API auto-dispatches an SMS to the buyer: "Hi [Name], thanks for viewing [Address]! Here's the 3D walkthrough video: [Link]. Would you like to schedule a private tour today?"\n3. Simultaneously calls the on-duty agent's phone and whispers: "Press 1 to connect with buyer [Name] right now."\n\nCuts response time from 2 hours to 25 seconds. Happy to outline the webhook structure!`,
+        dmPitch: `Hey Mark, saw your speed-to-lead bottleneck on r/realtors. We set up an instant 30-second SMS & agent call-whisper pipeline for a high-volume brokerage that boosted their booked showings by 40%. Would love to show you the workflow if you want to deploy it for your team.`,
+        redditUrl: "https://www.reddit.com/r/realtors/search/?q=speed+to+lead"
+      },
+      {
+        id: "cr-lead-6",
+        niche: "automation",
+        subreddit: "r/n8n",
+        author: "founder_kavita",
+        timeAgo: "10 hours ago",
+        title: "Migrating from Zapier to self-hosted n8n — webhook payload is collapsing into one string",
+        rawQuote: "Zapier was costing us $650/month, so we are migrating our B2B lead ingestion pipeline to self-hosted n8n on a DigitalOcean droplet. Everything was fine until our Stripe webhook payload started collapsing into a single raw string instead of parsed JSON. Need an n8n expert to fix the parse node.",
+        painScore: 91,
+        budgetEst: "$300 – $500",
+        tools: ["n8n", "Stripe Webhooks", "Docker/VPS"],
+        rootCause: "Webhook node requires JSON raw body option enabled or a Code node with JSON.parse() before branching.",
+        commentPitch: `Hey Kavita! Stripe sends webhook events as raw buffered payloads for signature verification. In n8n:\n\n1. Check your Webhook Node settings: ensure 'Response Mode' is set properly and 'Binary Data' is not intercepting the payload.\n2. In the following node, use a quick Code Node:\n   \`return JSON.parse($input.first().json.body);\`\n3. This unrolls the full Stripe event customer and line-items object into native n8n variables.\n\nKudos on moving away from Zapier's $650 bill — self-hosted n8n is 10x faster once configured!`,
+        dmPitch: `Hey Kavita, saw your n8n Stripe webhook post. I do Zapier-to-n8n migrations regularly to kill exorbitant SaaS bills. If you want to get your Stripe ingestion running without errors today, I can jump on a quick call and fix the parse node in 10 mins.`,
+        redditUrl: "https://www.reddit.com/r/n8n/search/?q=stripe+webhook+payload"
+      },
+      {
+        id: "cr-lead-7",
+        niche: "ecommerce",
+        subreddit: "r/shopify",
+        author: "apparel_store_sam",
+        timeAgo: "12 hours ago",
+        title: "TikTok Shop + Shopify inventory out of sync — oversold 18 units of our top hoodie",
+        rawQuote: "We launched on TikTok Shop last week alongside our Shopify store. The inventory sync app we installed lagged by 45 minutes, and we oversold 18 units of our limited-edition hoodie that we don't have fabric for. Customers are raging on our Instagram. Need a custom real-time webhook sync built immediately.",
+        painScore: 99,
+        budgetEst: "$1,200 – $2,500",
+        tools: ["Shopify Plus", "TikTok Shop API", "Real-Time Webhooks"],
+        rootCause: "Third-party polling apps rely on 30-min scheduled batches instead of real-time event-driven webhook listeners.",
+        commentPitch: `Hey Sam! This happens constantly with third-party multi-channel apps because they use batch polling (every 30–60 mins) rather than real-time event webhooks.\n\nThe bulletproof fix:\n1. Deploy a lightweight serverless endpoint (AWS Lambda or Vercel Edge).\n2. Listen to Shopify 'orders/create' webhook.\n3. The moment an order hits, the endpoint immediately calls TikTok Shop Inventory API to decrement stock in <1.2 seconds.\n4. Do the reverse for TikTok orders into Shopify.\n\nThis gives you true sub-second multi-channel lock and stops overselling completely.`,
+        dmPitch: `Hey Sam, saw the emergency with TikTok Shop overselling. That customer backlash is brutal. I build custom event-driven inventory sync endpoints that lock stock across channels in under 2 seconds. Let me know if you want me to set this up for your store today to prevent any more cancellations.`,
+        redditUrl: "https://www.reddit.com/r/shopify/search/?q=tiktok+shop+inventory+sync"
+      },
+      {
+        id: "cr-lead-8",
+        niche: "smallbiz",
+        subreddit: "r/entrepreneur",
+        author: "agency_owner_leo",
+        timeAgo: "14 hours ago",
+        title: "Tired of spending 15 hours every month creating client reporting PDFs manually",
+        rawQuote: "I run a boutique marketing agency with 18 clients. Every 1st of the month, I spend 2 full days logging into Google Ads, Meta Ads, and GA4, taking screenshots, and pasting metrics into Canva decks. Looking for someone to build a custom automated reporting dashboard or script that generates these decks automatically.",
+        painScore: 94,
+        budgetEst: "$800 – $1,800",
+        tools: ["Google Ads API", "Meta Ads API", "PDF Generation", "Looker Studio"],
+        rootCause: "Manual data aggregation across 3 ad platforms that can be pulled automatically via API on a monthly cron.",
+        commentPitch: `Hey Leo! Manual reporting decks eat up agency margins like crazy. \n\nYou can automate 100% of this with a lightweight pipeline:\n1. Python script connects to Google Ads, Meta Graph API, and GA4 Data API on the 1st of every month.\n2. Ingests spend, clicks, conversions, and ROAS into a standardized template.\n3. Compiles a pixel-perfect, branded client PDF using HTML/CSS (via Puppeteer/WeasyPrint).\n4. Auto-emails the PDF directly to each client with a personalized summary.\n\nSaves 15 hours every single month on autopilot.`,
+        dmPitch: `Hey Leo, saw your post on r/entrepreneur about the manual client reporting nightmare. Built an automated multi-ad reporting engine that saves agency owners 15+ hours each month. Can show you a live sample deck and how the automated script runs if you're interested!`,
+        redditUrl: "https://www.reddit.com/r/Entrepreneur/search/?q=client+reporting+deck"
+      }
+    ];
+
+    let crCurrentFilter = 'all';
+    let crSearchQuery = '';
+    let crSortMode = 'pain';
+
+    function renderClientRadarView() {
+      const container = document.getElementById('leads-container');
+      
+      let filtered = CLIENT_RADAR_LEADS.filter(lead => {
+        const matchesNiche = crCurrentFilter === 'all' || lead.niche === crCurrentFilter;
+        const matchesSearch = !crSearchQuery ||
+          lead.title.toLowerCase().includes(crSearchQuery) ||
+          lead.rawQuote.toLowerCase().includes(crSearchQuery) ||
+          lead.subreddit.toLowerCase().includes(crSearchQuery) ||
+          lead.tools.some(t => t.toLowerCase().includes(crSearchQuery));
+        return matchesNiche && matchesSearch;
+      });
+
+      if (crSortMode === 'pain') {
+        filtered.sort((a, b) => b.painScore - a.painScore);
+      } else if (crSortMode === 'recent') {
+        filtered.sort((a, b) => a.id.localeCompare(b.id));
+      }
+
+      document.getElementById('feed-count-badge').innerText = `${filtered.length} Pain Leads`;
+
+      const dorkLaunchersHtml = `
+        <!-- Direct Anti-Spam Reddit Dork Launchers -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-950/30 via-gray-900/60 to-orange-950/30 border border-amber-900/40 shadow-xl flex flex-col gap-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h3 class="text-xs sm:text-sm font-extrabold text-white flex items-center gap-2">
+                <i class="fa-brands fa-reddit text-orange-500 text-base"></i>
+                <span>Direct Anti-Spam Reddit Dork Launchers (Opens Live on Reddit)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30 font-mono font-bold">100% Filtered</span>
+              </h3>
+              <p class="text-[11px] text-gray-400">Clicking any link opens Reddit with all "[For Hire]" freelancer spam blocked automatically.</p>
+            </div>
+            <span class="text-[10px] text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-lg border border-emerald-500/30 self-start sm:self-auto font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block mr-1 animate-ping"></span> Live Scanner
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <a href="https://www.google.com/search?q=site:reddit.com/r/ecommerce+%22doing+this+manually%22+OR+%22takes+hours%22+OR+%22supplier+CSV%22+-%22for+hire%22" target="_blank" class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 hover:bg-gray-900 transition flex items-center justify-between group">
+              <div class="truncate mr-2">
+                <div class="text-xs font-bold text-gray-200 group-hover:text-amber-400 transition">Ecom CSV & Inventory</div>
+                <div class="text-[10px] text-gray-500 truncate">r/ecommerce • "takes hours"</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-500 group-hover:text-amber-400"></i>
+            </a>
+
+            <a href="https://www.google.com/search?q=site:reddit.com/r/zapier+%22broken%22+OR+%22can%27t+figure+out%22+OR+%22willing+to+pay%22+OR+%22hire%22+-%22for+hire%22" target="_blank" class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 hover:bg-gray-900 transition flex items-center justify-between group">
+              <div class="truncate mr-2">
+                <div class="text-xs font-bold text-gray-200 group-hover:text-amber-400 transition">Broken Zapier Flows</div>
+                <div class="text-[10px] text-gray-500 truncate">r/zapier • "willing to pay"</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-500 group-hover:text-amber-400"></i>
+            </a>
+
+            <a href="https://www.google.com/search?q=site:reddit.com/r/smallbusiness+%22spend+hours%22+OR+%22excel+clusterfuck%22+OR+%22manual+data+entry%22+-%22for+hire%22" target="_blank" class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 hover:bg-gray-900 transition flex items-center justify-between group">
+              <div class="truncate mr-2">
+                <div class="text-xs font-bold text-gray-200 group-hover:text-amber-400 transition">Small Biz Spreadsheets</div>
+                <div class="text-[10px] text-gray-500 truncate">r/smallbusiness • "spend hours"</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-500 group-hover:text-amber-400"></i>
+            </a>
+
+            <a href="https://www.google.com/search?q=site:reddit.com/r/forhire+%22%5BHiring%5D%22+(%22automation%22+OR+%22python+script%22+OR+%22scraper%22)+-%22%5BFor+Hire%5D%22" target="_blank" class="p-3 rounded-xl bg-gray-950/80 border border-gray-800 hover:border-amber-500/50 hover:bg-gray-900 transition flex items-center justify-between group">
+              <div class="truncate mr-2">
+                <div class="text-xs font-bold text-gray-200 group-hover:text-amber-400 transition">Direct Hiring Boards</div>
+                <div class="text-[10px] text-gray-500 truncate">r/forhire • [Hiring] only</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-500 group-hover:text-amber-400"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Niche Filter Chips + Search Toolbar -->
+        <div class="glass-card rounded-2xl p-4 border border-gray-800 flex flex-col gap-3">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <button onclick="setCrNiche('all')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'all' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                🔥 All High-Pain (${CLIENT_RADAR_LEADS.length})
+              </button>
+              <button onclick="setCrNiche('ecommerce')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'ecommerce' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                🛒 E-Commerce & Shopify
+              </button>
+              <button onclick="setCrNiche('automation')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'automation' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                ⚡ Broken Zapier & n8n
+              </button>
+              <button onclick="setCrNiche('scraping')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'scraping' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                🕷️ Python Scrapers
+              </button>
+              <button onclick="setCrNiche('smallbiz')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'smallbiz' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                📊 Spreadsheet Hell
+              </button>
+              <button onclick="setCrNiche('realestate')" class="cr-chip px-3 py-1.5 rounded-xl text-xs font-bold transition ${crCurrentFilter === 'realestate' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30' : 'bg-gray-950 text-gray-400 border border-gray-800 hover:text-white'}">
+                🏡 Real Estate CRM
+              </button>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <div class="relative flex-1 sm:w-56">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-500 text-xs"></i>
+                <input type="text" value="${escapeText(crSearchQuery)}" oninput="handleCrSearch(this.value)" placeholder="Search client pain..." class="w-full bg-gray-950 border border-gray-800 focus:border-amber-500 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-gray-600 outline-none transition font-mono" />
+              </div>
+              <select onchange="handleCrSort(this.value)" class="bg-gray-950 border border-gray-800 focus:border-amber-500 rounded-xl px-2.5 py-1.5 text-xs text-gray-300 outline-none cursor-pointer font-mono font-bold">
+                <option value="pain" ${crSortMode === 'pain' ? 'selected' : ''}>🔥 Highest Pain</option>
+                <option value="recent" ${crSortMode === 'recent' ? 'selected' : ''}>⏱️ Most Recent</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (filtered.length === 0) {
+        container.innerHTML = dorkLaunchersHtml + `
+          <div class="p-16 text-center text-gray-500 glass-card rounded-2xl border border-gray-800">
+            <i class="fa-solid fa-filter text-4xl mb-3 text-amber-500/40"></i>
+            <h3 class="text-base font-bold text-gray-300">No matching client pain leads found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try resetting the search or selecting "All High-Pain".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const cardsHtml = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ` + filtered.map(lead => `
+            <div class="glass-card rounded-2xl p-5 border border-gray-800/90 hover:border-amber-500/40 transition-all flex flex-col justify-between gap-3 group relative overflow-hidden">
+              <div>
+                <!-- Top Badges -->
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1.5">
+                      <i class="fa-brands fa-reddit text-xs"></i> ${lead.subreddit}
+                    </span>
+                    <span class="text-[11px] text-gray-400 font-mono">u/${lead.author} • ${lead.timeAgo}</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 bg-red-500/10 border border-red-500/30 text-red-400 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full font-mono">
+                    <i class="fa-solid fa-fire text-red-500"></i> ${lead.painScore}% Pain
+                  </div>
+                </div>
+
+                <!-- Post Title -->
+                <h4 class="text-sm font-bold text-white group-hover:text-amber-300 transition leading-snug mb-2.5">
+                  ${escapeText(lead.title)}
+                </h4>
+
+                <!-- Exact User Problem Quote -->
+                <div class="p-3 rounded-xl bg-gray-950/80 border border-gray-800/80 mb-3 font-mono">
+                  <div class="text-[10px] font-bold uppercase tracking-wider text-amber-400/80 mb-1 flex items-center gap-1">
+                    <i class="fa-solid fa-quote-left text-amber-500/60"></i> Exact User Problem
+                  </div>
+                  <p class="text-xs text-gray-300 italic leading-relaxed">
+                    "${escapeText(lead.rawQuote)}"
+                  </p>
+                </div>
+
+                <!-- Meta Tags -->
+                <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                  <span class="text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-lg">
+                    💰 Budget: ${lead.budgetEst}
+                  </span>
+                  ${lead.tools.map(tool => `
+                    <span class="text-[10px] font-mono bg-gray-900 text-gray-300 border border-gray-800 px-2 py-0.5 rounded-lg">
+                      ${tool}
+                    </span>
+                  `).join('')}
+                  <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-2 py-0.5 rounded-lg ml-auto">
+                    <i class="fa-solid fa-shield-halved"></i> 0% Spam
+                  </span>
+                </div>
+              </div>
+
+              <!-- Bottom Actions -->
+              <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between gap-2">
+                <a href="${lead.redditUrl}" target="_blank" class="text-xs text-gray-400 hover:text-white flex items-center gap-1.5 transition">
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> View Reddit Post
+                </a>
+                <button onclick="openClientRadarModal('${lead.id}')" class="px-3.5 py-1.5 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold text-xs rounded-xl shadow-md shadow-orange-600/20 flex items-center gap-1.5 transition">
+                  <i class="fa-solid fa-wand-magic-sparkles text-[11px]"></i>
+                  <span>Generate AI Pitch</span>
+                </button>
+              </div>
+            </div>
+          `).join('') + `
+        </div>
+      `;
+
+      container.innerHTML = dorkLaunchersHtml + cardsHtml;
+    }
+
+    function setCrNiche(niche) {
+      crCurrentFilter = niche;
+      renderClientRadarView();
+    }
+
+    function handleCrSearch(query) {
+      crSearchQuery = (query || '').toLowerCase().trim();
+      renderClientRadarView();
+    }
+
+    function handleCrSort(sort) {
+      crSortMode = sort;
+      renderClientRadarView();
+    }
+
+    function openClientRadarModal(leadId) {
+      const lead = CLIENT_RADAR_LEADS.find(l => l.id === leadId);
+      if (!lead) return;
+
+      document.getElementById('cr-modal-post-title').innerText = `${lead.subreddit}: "${lead.title}"`;
+      document.getElementById('cr-modal-comment-text').value = lead.commentPitch;
+      document.getElementById('cr-modal-dm-text').value = lead.dmPitch;
+      document.getElementById('cr-modal-reddit-link').href = lead.redditUrl;
+
+      const modal = document.getElementById('cr-pitch-modal');
+      modal.style.display = 'flex';
+    }
+
+    function closeClientRadarModal() {
+      const modal = document.getElementById('cr-pitch-modal');
+      modal.style.display = 'none';
+    }
+
+    function copyCrComment() {
+      const text = document.getElementById('cr-modal-comment-text').value;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Public diagnostic comment copied to clipboard!', 'success');
+      }).catch(() => {
+        showToast('Comment copied!', 'info');
+      });
+    }
+
+    function copyCrDm() {
+      const text = document.getElementById('cr-modal-dm-text').value;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Private DM pitch copied to clipboard!', 'success');
+      }).catch(() => {
+        showToast('DM pitch copied!', 'info');
+      });
+    }
+
     // ================= MODAL CONTROLS =================
     function openProfileModal() { document.getElementById('profile-modal').style.display = 'flex'; }
     function closeProfileModal() { document.getElementById('profile-modal').style.display = 'none'; }
@@ -1788,10 +2253,10 @@
 
     // Auto-Register Client Session Tracker
     async function trackClientSession(eventType = 'pageview', meta = '') {
-      let sessId = localStorage.getItem('bizflow_session_id');
+      let sessId = localStorage.getItem('leedsflow_session_id');
       if (!sessId) {
         sessId = 'sess_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('bizflow_session_id', sessId);
+        localStorage.setItem('leedsflow_session_id', sessId);
       }
 
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -1835,44 +2300,29 @@
     function shareLeadTwitter(title, niche, leadId) {
       trackClientSession('share_twitter', `Lead #${leadId} (${niche})`);
       const text = encodeURIComponent(`🔥 Live buyer intent lead in #${niche.replace(/\s+/g, '')}: "${title.substring(0, 80)}..."\n\nFound via @LeedsFlowAI LeadRadar (100+ communities monitored live):\n`);
-      const url = encodeURIComponent(`https://bizflow-platform.vercel.app/?ref=share_tw_${leadId}`);
+      const url = encodeURIComponent(`https://leedsflow-platform.vercel.app/?ref=share_tw_${leadId}`);
       window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=450');
     }
 
     function shareLeadLinkedIn(title, leadId) {
       trackClientSession('share_linkedin', `Lead #${leadId}`);
-      const url = encodeURIComponent(`https://bizflow-platform.vercel.app/?ref=share_li_${leadId}`);
+      const url = encodeURIComponent(`https://leedsflow-platform.vercel.app/?ref=share_li_${leadId}`);
       window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=550');
     }
 
     function shareLeadWhatsApp(title, leadId) {
       trackClientSession('share_whatsapp', `Lead #${leadId}`);
-      const text = encodeURIComponent(`⚡ Check out this verified client lead: "${title.substring(0, 80)}..."\n\nLive on LeedsFlow LeadRadar: https://bizflow-platform.vercel.app/?ref=share_wa_${leadId}`);
+      const text = encodeURIComponent(`⚡ Check out this verified client lead: "${title.substring(0, 80)}..."\n\nLive on LeedsFlow LeadRadar: https://leedsflow-platform.vercel.app/?ref=share_wa_${leadId}`);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     }
 
     function copyLeadShareLink(leadId) {
       trackClientSession('copy_share_link', `Lead #${leadId}`);
-      const shareUrl = `https://bizflow-platform.vercel.app/?ref=lead_${leadId}`;
+      const shareUrl = `https://leedsflow-platform.vercel.app/?ref=lead_${leadId}`;
       navigator.clipboard.writeText(shareUrl).then(() => {
         showToast('🔗 Direct shareable lead link copied to clipboard!', 'success');
       }).catch(() => {
         showToast('Link: ' + shareUrl, 'info');
-      });
-    }
-
-    function copyEmbedBadgeSnippet() {
-      trackClientSession('copy_embed_badge', 'Website Backlink Widget');
-      const snippet = `<a href="https://bizflow-platform.vercel.app/" target="_blank" title="Powered by LeedsFlow AI LeadRadar">\n  <img src="https://bizflow-platform.vercel.app/badge.svg" alt="Powered by LeedsFlow AI LeadRadar" width="220" height="38" />\n</a>`;
-      navigator.clipboard.writeText(snippet).then(() => {
-        const btn = document.getElementById('btn-copy-embed');
-        if (btn) btn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i><span>Copied HTML!</span>';
-        showToast('✓ Embed code copied! Paste in your website footer or README.', 'success');
-        setTimeout(() => {
-          if (btn) btn.innerHTML = '<i class="fa-solid fa-code text-orange-400"></i><span>Copy Embed Code</span>';
-        }, 3000);
-      }).catch(() => {
-        prompt('Copy HTML code:', snippet);
       });
     }
 
@@ -1886,6 +2336,6 @@
         .replace(/'/g, '&#039;');
     }
   </script>
-  <script src="https://trafficpulse-platform.vercel.app/tracker.js" data-app="bizflow" async></script>
+  <script src="https://trafficpulse-platform.vercel.app/tracker.js" data-app="leedsflow" async></script>
 </body>
 </html>
