@@ -24,8 +24,8 @@ PRODUCT_DATA = {
     "category": "Lead Generation, AI Sales Assistant, B2B SaaS, Agency Growth",
     "tags": ["AI", "Lead Generation", "Reddit Scraper", "Client Acquisition", "Cold Outreach", "B2B SaaS"],
     "maker": {
-        "name": "Harshit Pratap",
-        "email": "harshitpratap1113@gmail.com",
+        "name": "LeedsFlow Engineering",
+        "email": "contact@leedsflow.ai",
         "role": "Founder & Lead Architect"
     }
 }

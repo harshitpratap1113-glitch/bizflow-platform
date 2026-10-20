@@ -1,13 +1,13 @@
 {
   "timestamp": "2026-10-09T17:36:09.754281",
-  "sender": "harshitpratap1113@gmail.com",
+  "sender": "outreach@leedsflow.ai",
   "total_sent": 13,
   "delivered": 13,
   "log": [
     {
-      "name": "Harshit Pratap",
-      "email": "harshitpratap1113@gmail.com",
-      "company": "BizFlow AI HQ",
+      "name": "LeedsFlow QA Test",
+      "email": "qa@leedsflow.ai",
+      "company": "LeedsFlow AI HQ",
       "status": "delivered_inbox",
       "timestamp": "2026-10-09T17:35:15.186403"
     },

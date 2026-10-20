@@ -19,11 +19,11 @@ if sys.platform == "win32":
 # =====================================================================
 # 🔐 AUTHENTICATED SMTP CONFIGURATION (100% PRIMARY INBOX PLACEMENT)
 # =====================================================================
-SMTP_HOST = "smtp.gmail.com"
-SMTP_PORT = 587
-SMTP_USER = "harshitpratap1113@gmail.com"
-SMTP_PASS = "jyfzhfxqvchvdkrx"
-FROM_SENDER = f"Harshit Pratap <{SMTP_USER}>"
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", 587))
+SMTP_USER = os.environ.get("SMTP_USER", "")
+SMTP_PASS = os.environ.get("SMTP_PASS", "")
+FROM_SENDER = os.environ.get("FROM_SENDER", "LeedsFlow AI <outreach@leedsflow.ai>")
 APP_URL = "https://bizflow-platform.vercel.app"
 
 # =====================================================================
@@ -45,9 +45,9 @@ def verify_email_domain(email):
 # =====================================================================
 FEEDBACK_PROSPECTS = [
     {
-        "name": "Harshit Pratap",
-        "email": "harshitpratap1113@gmail.com",
-        "company": "BizFlow AI HQ",
+        "name": "Alex - Lead Engineering",
+        "email": "feedback@example.com",
+        "company": "Tech Studio",
         "niche": "AI SaaS & Web Apps",
         "role": "Founder"
     },
@@ -169,9 +169,9 @@ Feel free to reply directly with any unfiltered thoughts — I read and reply to
 Thanks so much for your time!
 
 Warm regards,
-Harshit Pratap
-Founder, BizFlow AI
-harshitpratap1113@gmail.com
+LeedsFlow Team
+LeedsFlow AI
+support@leedsflow.ai
 """
 
     html_content = f"""<!DOCTYPE html>
@@ -184,7 +184,7 @@ harshitpratap1113@gmail.com
 
   <p>Hope you're having a productive week!</p>
 
-  <p>I'm Harshit, an indie builder. I recently built a client acquisition &amp; buyer-intent tool called <strong style="color: #ea580c;">BizFlow AI</strong> (<a href="{APP_URL}" style="color: #ea580c; text-decoration: underline;">{APP_URL}</a>).</p>
+  <p>I'm part of the team behind <strong style="color: #ea580c;">LeedsFlow AI</strong> (<a href="{APP_URL}" style="color: #ea580c; text-decoration: underline;">{APP_URL}</a>).</p>
 
   <p>It continuously monitors 100+ communities across <strong>{niche}</strong> and dev ecosystems in real-time, sorting real $2,000–$10,000+ budget buyer requests into a Tri-Box radar so developers and agencies don't have to waste time on Upwork connects or $0 spam gigs.</p>
 
@@ -198,15 +198,15 @@ harshitpratap1113@gmail.com
   </div>
 
   <p>👉 <strong>Test it Live (100% Free Beta, No Signup Required):</strong><br>
-  <a href="{APP_URL}" style="background-color: #ea580c; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block; margin-top: 6px;">Open BizFlow LeadRadar</a></p>
+  <a href="{APP_URL}" style="background-color: #ea580c; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block; margin-top: 6px;">Open LeedsFlow LeadRadar</a></p>
 
-  <p>Feel free to reply directly to this email with your thoughts — I read and answer every message personally.</p>
+  <p>Feel free to reply directly to this email with your thoughts — we read and answer every message.</p>
 
   <p style="margin-top: 25px; color: #444444;">
     Warm regards,<br>
-    <strong>Harshit Pratap</strong><br>
-    <span style="font-size: 13px; color: #64748b;">Founder &amp; Builder, BizFlow AI<br>
-    harshitpratap1113@gmail.com &bull; <a href="{APP_URL}" style="color: #ea580c;">{APP_URL}</a></span>
+    <strong>LeedsFlow Team</strong><br>
+    <span style="font-size: 13px; color: #64748b;">LeedsFlow AI<br>
+    support@leedsflow.ai &bull; <a href="{APP_URL}" style="color: #ea580c;">{APP_URL}</a></span>
   </p>
 </body>
 </html>

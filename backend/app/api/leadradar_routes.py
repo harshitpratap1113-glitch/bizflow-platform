@@ -536,8 +536,8 @@ def delete_custom_community(target_id: int):
 class OutboxPitchRequest(BaseModel):
     lead_id: int
     custom_pitch: Optional[str] = ""
-    sender_name: Optional[str] = "Harshit Pratap | LeedsFlow AI"
-    sender_email: Optional[str] = "harshitpratap1113@gmail.com"
+    sender_name: Optional[str] = "LeedsFlow Intelligence Team"
+    sender_email: Optional[str] = "outreach@leedsflow.ai"
     sender_whatsapp: Optional[str] = ""
     target_email: Optional[str] = ""
 
@@ -588,10 +588,13 @@ def send_lead_pitch_email(req: OutboxPitchRequest):
 </html>
 """
 
-    # Dispatch via Google SMTP
+    # Dispatch via Google SMTP (if credentials configured in environment)
     try:
-        smtp_user = os.environ.get("SMTP_USER", "harshitpratap1113@gmail.com")
-        smtp_pass = os.environ.get("SMTP_PASS", "jyfzhfxqvchvdkrx")
+        smtp_user = os.environ.get("SMTP_USER", "")
+        smtp_pass = os.environ.get("SMTP_PASS", "")
+        if not smtp_user or not smtp_pass:
+            return {"status": "simulated", "message": "Proposal preview generated successfully."}
+
         server = smtplib.SMTP("smtp.gmail.com", 587, timeout=12)
         server.starttls()
         server.login(smtp_user, smtp_pass)
@@ -606,8 +609,9 @@ def send_lead_pitch_email(req: OutboxPitchRequest):
 
         server.sendmail(smtp_user, [smtp_user], msg.as_string())
         server.quit()
+        return {"status": "sent", "message": "Email dispatched successfully."}
     except Exception as e:
-        pass
+        return {"status": "error", "message": str(e)}
 
     return {
         "status": "success",
